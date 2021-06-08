@@ -32,12 +32,16 @@ public class SkinLayoutInflaterFactory implements LayoutInflater.Factory2, Obser
     @Override
     public View onCreateView(@Nullable View parent, @NonNull String name, @NonNull Context context, @NonNull AttributeSet attrs) {
         View view = null;
+
         if(mActivity instanceof AppCompatActivity){
             AppCompatDelegate delegate = ((AppCompatActivity)mActivity).getDelegate();
             view = delegate.createView(parent, name, context, attrs);
         }
         if (view == null) {
             view = SkinViewFactory.createViewFromTag(context, name, attrs);
+        }
+        if (view == null) {
+            return null;
         }
         skinAttribute.parseSkinAttr(view,attrs);
         return view;
