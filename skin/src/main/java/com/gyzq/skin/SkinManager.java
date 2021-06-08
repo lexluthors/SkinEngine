@@ -8,7 +8,7 @@ import android.content.res.Resources;
 import android.text.TextUtils;
 
 import com.gyzq.skin.utils.SkinSpUtils;
-import com.gyzq.skin.utils.SkinResourcesUtils;
+import com.gyzq.skin.utils.SkinResUtils;
 
 import java.io.File;
 import java.lang.reflect.Method;
@@ -18,7 +18,7 @@ import java.util.Observable;
 /**
  * @author: liujie
  * @date: 2021/6/7
- * @description:
+ * @description: 皮肤管理器
  */
 public class SkinManager extends Observable {
 
@@ -63,7 +63,7 @@ public class SkinManager extends Observable {
         //记录当前使用的皮肤
         SkinSpUtils.init(application);
         //资源管理类 用于从app/皮肤中加载资源
-        SkinResourcesUtils.init(application);
+        SkinResUtils.init(application);
         application.registerActivityLifecycleCallbacks(new SkinActivityLifecycleCallbacks());
         //加载当前皮肤，默认皮肤
         loadSkin(SkinSpUtils.getInstance().getSkin());
@@ -115,7 +115,7 @@ public class SkinManager extends Observable {
                 PackageInfo packageArchiveInfo = packageManager.getPackageArchiveInfo(path, PackageManager.GET_ACTIVITIES);
                 String packageName = packageArchiveInfo.packageName;
 
-                SkinResourcesUtils.getInstance().applySkin(skinResources, packageName);
+                SkinResUtils.getInstance().applySkin(skinResources, packageName);
                 //通知观者者，刷新界面
                 setChanged();
                 notifyObservers();
@@ -129,7 +129,7 @@ public class SkinManager extends Observable {
         // 记录使用默认皮肤，重置为空，重置为默认皮肤
         SkinSpUtils.getInstance().setSkin("");
         //清空资源管理器、皮肤资源属性等
-        SkinResourcesUtils.getInstance().reset();
+        SkinResUtils.getInstance().reset();
         //通知观者者
         setChanged();
         notifyObservers();

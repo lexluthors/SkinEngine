@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.gyzq.skin.utils.SkinResourcesUtils;
+import com.gyzq.skin.utils.SkinResUtils;
 import com.gyzq.skin.utils.SkinSpUtils;
 
 import java.io.File;
@@ -17,7 +17,7 @@ import java.util.ArrayList;
 /**
  * @author: liujie
  * @date: 2021/6/7
- * @description: 皮肤属性类
+ * @description: 皮肤属性类，解析所有view的属性，保存起来
  */
 public class SkinAttribute {
 
@@ -79,7 +79,7 @@ public class SkinAttribute {
             Drawable left = null, top = null, right = null, bottom = null;
             switch (attributeName) {
                 case "background":
-                    Object background = SkinResourcesUtils.getInstance().getBackground(
+                    Object background = SkinResUtils.getInstance().getBackground(
                             resId);
                     //Color
                     if (background instanceof Integer) {
@@ -89,7 +89,7 @@ public class SkinAttribute {
                     }
                     break;
                 case "src":
-                    background = SkinResourcesUtils.getInstance().getBackground(skinPair
+                    background = SkinResUtils.getInstance().getBackground(skinPair
                             .getResId());
                     if (background instanceof Integer) {
                         ((ImageView) view).setImageDrawable(new ColorDrawable((Integer)
@@ -99,20 +99,20 @@ public class SkinAttribute {
                     }
                     break;
                 case "textColor":
-                    ((TextView) view).setTextColor(SkinResourcesUtils.getInstance().getColorStateList
+                    ((TextView) view).setTextColor(SkinResUtils.getInstance().getColorStateList
                             (resId));
                     break;
                 case "drawableLeft":
-                    left = SkinResourcesUtils.getInstance().getDrawable(resId);
+                    left = SkinResUtils.getInstance().getDrawable(resId);
                     break;
                 case "drawableTop":
-                    top = SkinResourcesUtils.getInstance().getDrawable(resId);
+                    top = SkinResUtils.getInstance().getDrawable(resId);
                     break;
                 case "drawableRight":
-                    right = SkinResourcesUtils.getInstance().getDrawable(resId);
+                    right = SkinResUtils.getInstance().getDrawable(resId);
                     break;
                 case "drawableBottom":
-                    bottom = SkinResourcesUtils.getInstance().getDrawable(resId);
+                    bottom = SkinResUtils.getInstance().getDrawable(resId);
                     break;
                 default:
                     break;

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /**
  * @author: liujie
  * @date: 2021/6/7
- * @description: 保存皮肤
+ * @description: 保存view和对应的属性，一个view对应多个属性
  */
 public class SkinViewItem {
 

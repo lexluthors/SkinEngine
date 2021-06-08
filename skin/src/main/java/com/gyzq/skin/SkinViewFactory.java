@@ -12,7 +12,7 @@ import java.util.Map;
 /**
  * @author: liujie
  * @date: 2021/6/8
- * @description:
+ * @description: view创建类
  */
 public class SkinViewFactory {
     private static final Object[] mConstructorArgs = new Object[2];

@@ -10,30 +10,34 @@ import android.text.TextUtils;
 /**
  * @author: liujie
  * @date: 2021/6/8
- * @description:
+ * @description: 加载皮肤的资源管理器工具类
  */
-public class SkinResourcesUtils {
+public class SkinResUtils {
 
-    private static volatile SkinResourcesUtils mInstance;
+    private static volatile SkinResUtils mInstance;
+    //app内部的resource对象
     private Resources mAppResources;
+    //用于加载外部皮肤的resource对象
     private Resources mSkinResources;
+    //皮肤包的包名
     private String mSkinPackageName;
+    //是否是默认皮肤
     private boolean isDefaultSkin = true;
 
-    private SkinResourcesUtils(Context context) {
+    private SkinResUtils(Context context) {
         mAppResources = context.getResources();
     }
 
-    public static SkinResourcesUtils getInstance() {
+    public static SkinResUtils getInstance() {
 
         return mInstance;
     }
 
     public static void init(Context context) {
         if (mInstance == null) {
-            synchronized (SkinResourcesUtils.class) {
+            synchronized (SkinResUtils.class) {
                 if (mInstance == null) {
-                    mInstance = new SkinResourcesUtils(context);
+                    mInstance = new SkinResUtils(context);
                 }
             }
         }

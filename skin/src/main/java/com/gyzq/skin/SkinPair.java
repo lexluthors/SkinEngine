@@ -3,7 +3,7 @@ package com.gyzq.skin;
 /**
  * @author: liujie
  * @date: 2021/6/7
- * @description:
+ * @description: 一个属性对应一个资源id
  */
 public class SkinPair {
 

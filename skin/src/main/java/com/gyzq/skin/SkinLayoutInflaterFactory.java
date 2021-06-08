@@ -16,7 +16,7 @@ import java.util.Observer;
 /**
  * @author: liujie
  * @date: 2021/6/7 上午9:19 
- * @description: 
+ * @description: 自定义Factory2，替换系统的view创建
  */
 public class SkinLayoutInflaterFactory implements LayoutInflater.Factory2, Observer {
 

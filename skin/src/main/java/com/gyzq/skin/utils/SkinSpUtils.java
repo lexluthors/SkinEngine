@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 /**
  * @author: liujie
  * @date: 2021/6/8
- * @description:
+ * @description: 用于保存皮肤路径
  */
 public class SkinSpUtils {
     private static final String SKIN_SHARED = "gyzq_skins";

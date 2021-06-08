@@ -14,10 +14,11 @@ import java.util.HashMap;
 /**
  * @author: liujie
  * @date: 2021/6/4 下午5:46 
- * @description: 
+ * @description: 监听所有activity，拦截activity的布局创建
  */
 public class SkinActivityLifecycleCallbacks implements Application.ActivityLifecycleCallbacks{
 
+    //保存activity，对应的布局工厂，联动生命周期
     private final HashMap<Activity, SkinLayoutInflaterFactory> mSkinLayoutInflaterFactoryHashMap = new HashMap<>();
 
     @Override
