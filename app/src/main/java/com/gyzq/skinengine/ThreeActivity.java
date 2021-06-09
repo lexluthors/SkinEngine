@@ -7,29 +7,28 @@ import android.view.View;
 
 import com.gyzq.skin.SkinManager;
 
-public class MainActivity extends AppCompatActivity {
+public class ThreeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        //app-debug.apk
-        findViewById(R.id.huanfu).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SkinManager.getInstance().loadSkin("/sdcard/app-debug.apk");
-            }
-        });
+        setContentView(R.layout.activity_three);
         findViewById(R.id.chongzhi).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SkinManager.getInstance().resetDefaultSkin();
             }
         });
-        findViewById(R.id.jumpToStart).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.huanfu).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,TwoActivity.class);
+                SkinManager.getInstance().loadSkin("/sdcard/app-debug.apk");
+            }
+        });
+        findViewById(R.id.jumpList).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ThreeActivity.this,ListActivity.class);
                 startActivity(intent);
             }
         });

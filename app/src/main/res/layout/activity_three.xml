@@ -24,10 +24,10 @@
             android:layout_height="wrap_content"
             android:text="默认皮肤"/>
         <Button
-            android:id="@+id/jumpToStart"
+            android:id="@+id/jumpList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="跳到下一个界面"/>
+            android:text="跳到列表"/>
     </LinearLayout>
     <TextView
         android:textColor="@color/gy1"

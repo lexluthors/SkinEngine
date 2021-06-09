@@ -14,20 +14,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <Button
-            android:id="@+id/huanfu"
+            android:id="@+id/jumpToTwo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="换肤"/>
+            android:text="跳转到第三个界面"/>
         <Button
             android:id="@+id/chongzhi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="默认皮肤"/>
-        <Button
-            android:id="@+id/jumpToStart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="跳到下一个界面"/>
     </LinearLayout>
     <TextView
         android:textColor="@color/gy1"
