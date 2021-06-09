@@ -10,7 +10,6 @@
 
     <TextView
         android:id="@+id/text"
-        android:background="@color/gy6"
         android:layout_width="match_parent"
         android:text="测试效果如何"
         android:gravity="center"
