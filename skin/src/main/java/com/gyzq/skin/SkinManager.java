@@ -5,12 +5,14 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
+import android.graphics.Typeface;
 import android.text.TextUtils;
 
-import com.gyzq.skin.utils.SkinSpUtils;
 import com.gyzq.skin.utils.SkinResUtils;
+import com.gyzq.skin.utils.SkinSpUtils;
 
 import java.io.File;
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Observable;
@@ -93,6 +95,7 @@ public class SkinManager extends Observable {
 
     /**
      * 加载指定的皮肤包
+     *
      * @param path 皮肤包路径，本地路径
      */
     public void loadSkin(String path) {
@@ -118,20 +121,33 @@ public class SkinManager extends Observable {
                 SkinResUtils.getInstance().applySkin(skinResources, packageName);
                 //通知观者者，刷新界面
                 setChanged();
-                notifyObservers();
+                notifyObservers(SkinType.SKIN);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public void resetDefaultSkin(){
+    public void resetDefaultSkin() {
         // 记录使用默认皮肤，重置为空，重置为默认皮肤
         SkinSpUtils.getInstance().setSkin("");
         //清空资源管理器、皮肤资源属性等
         SkinResUtils.getInstance().reset();
         //通知观者者
         setChanged();
-        notifyObservers();
+        notifyObservers(SkinType.SKIN);
+    }
+
+    public void setSkinTypeface() {
+        setChanged();
+        notifyObservers(SkinType.TYPEFACE);
+        Typeface typeFace = Typeface.createFromFile("/sdcard/specified.ttf");
+        try {
+            Field field = Typeface.class.getDeclaredField("SERIF");
+            field.setAccessible(true);
+            field.set(null, typeFace);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -1,5 +1,6 @@
 package com.gyzq.skin;
 
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.v4.view.ViewCompat;
@@ -23,6 +24,8 @@ public class SkinAttribute {
 
 
     private final ArrayList<SkinViewItem> mSkinViewItems;
+
+    private Typeface mTypeface;
 
     public SkinAttribute() {
         this.mSkinViewItems = new ArrayList<>();
@@ -69,6 +72,19 @@ public class SkinAttribute {
     void applySkin() {
         for (SkinViewItem mSkinViewItem : mSkinViewItems) {
             applySkin(mSkinViewItem.getView(), mSkinViewItem.getSkinAttrs());
+        }
+    }
+
+    /**
+     * 换字体操作，遍历所有textview，设置新的字体
+     */
+    void applyTypeFace() {
+        for (SkinViewItem mSkinViewItem : mSkinViewItems) {
+            View view = mSkinViewItem.getView();
+            if (view instanceof TextView){
+                //是textview就换字体
+//                ((TextView) view).setTypeface();
+            }
         }
     }
 
@@ -124,4 +140,5 @@ public class SkinAttribute {
             }
         }
     }
+
 }

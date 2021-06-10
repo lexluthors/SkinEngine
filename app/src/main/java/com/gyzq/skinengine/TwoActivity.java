@@ -1,13 +1,13 @@
 package com.gyzq.skinengine;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.gyzq.skin.SkinManager;
 
-public class TwoActivity extends AppCompatActivity {
+public class TwoActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +24,12 @@ public class TwoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 SkinManager.getInstance().resetDefaultSkin();
+            }
+        });
+        findViewById(R.id.ziti).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SkinManager.getInstance().setSkinTypeface();
             }
         });
     }

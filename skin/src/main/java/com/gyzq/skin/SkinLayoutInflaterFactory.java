@@ -49,9 +49,15 @@ public class SkinLayoutInflaterFactory implements LayoutInflater.Factory2, Obser
 
     @Override
     public void update(Observable o, Object arg) {
-        if (skinAttribute!=null){
-            skinAttribute.applySkin();
+        if (arg.equals(SkinType.SKIN)){
+            System.out.println("皮肤换肤");
+            if (skinAttribute!=null){
+                skinAttribute.applySkin();
+            }
+        } else if (arg.equals(SkinType.TYPEFACE)) {
+            System.out.println("换字体");
         }
+
     }
 
     @Nullable

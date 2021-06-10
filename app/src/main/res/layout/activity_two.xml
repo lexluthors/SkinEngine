@@ -23,6 +23,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="默认皮肤"/>
+        <Button
+            android:id="@+id/ziti"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="修改字体"/>
     </LinearLayout>
     <TextView
         android:textColor="@color/gy1"
