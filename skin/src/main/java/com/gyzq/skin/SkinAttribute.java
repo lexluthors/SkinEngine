@@ -40,8 +40,8 @@ public class SkinAttribute {
             if (SkinManager.mSupportAttr.contains(attributeName)) {
                 // 取值可能为 @2130837590、#具体色值、?2130837590 三种情况
                 String attributeValue = attributeSet.getAttributeValue(i);
-                //如果是以#开头的资源，是写死的，就不支持换肤，不需要处理
-                if (attributeValue.startsWith("#") || attributeValue.startsWith("?")) {
+                //如果是以#开头的资源，是写死的，就不支持换肤，不需要处理 || attributeValue.startsWith("?")
+                if (attributeValue.startsWith("#")) {
                     continue;
                 }
                 //@开头的需要处理，@color，@mipmap @drawable
