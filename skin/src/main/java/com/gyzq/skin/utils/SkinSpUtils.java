@@ -12,6 +12,7 @@ public class SkinSpUtils {
     private static final String SKIN_SHARED = "gyzq_skins";
 
     private static final String KEY_SKIN_PATH = "key_skin_path";
+    private static final String KEY_TYPEFACE_PATH = "key_typeface_path";
     private static SkinSpUtils instance;
     private final SharedPreferences pref;
 
@@ -39,6 +40,14 @@ public class SkinSpUtils {
 
     public String getSkin() {
         return pref.getString(KEY_SKIN_PATH, "");
+    }
+
+    public void setTypeFacePath(String fontPath) {
+        pref.edit().putString(KEY_TYPEFACE_PATH, fontPath).apply();
+    }
+
+    public String getTypeFacePath() {
+        return pref.getString(KEY_TYPEFACE_PATH, "");
     }
 
 }

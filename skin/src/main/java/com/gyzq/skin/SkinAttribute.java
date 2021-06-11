@@ -25,8 +25,6 @@ public class SkinAttribute {
 
     private final ArrayList<SkinViewItem> mSkinViewItems;
 
-    private Typeface mTypeface;
-
     public SkinAttribute() {
         this.mSkinViewItems = new ArrayList<>();
     }
@@ -79,11 +77,12 @@ public class SkinAttribute {
      * 换字体操作，遍历所有textview，设置新的字体
      */
     void applyTypeFace() {
+        Typeface typeface = SkinResUtils.getInstance().getTypeface();
         for (SkinViewItem mSkinViewItem : mSkinViewItems) {
             View view = mSkinViewItem.getView();
             if (view instanceof TextView){
                 //是textview就换字体
-//                ((TextView) view).setTypeface();
+                ((TextView) view).setTypeface(typeface);
             }
         }
     }

@@ -7,6 +7,8 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 
+import java.lang.reflect.Field;
+
 /**
  * @author: liujie
  * @date: 2021/6/8
@@ -23,13 +25,15 @@ public class SkinResUtils {
     private String mSkinPackageName;
     //是否是默认皮肤
     private boolean isDefaultSkin = true;
+    //默认字体
+    private Typeface typeFace = Typeface.DEFAULT;
 
     private SkinResUtils(Context context) {
         mAppResources = context.getResources();
+        typeFace = getTypeFaceFromFilePath();
     }
 
     public static SkinResUtils getInstance() {
-
         return mInstance;
     }
 
@@ -42,8 +46,6 @@ public class SkinResUtils {
             }
         }
     }
-
-
 
     public void applySkin(Resources resources, String pkgName) {
         mSkinPackageName = pkgName;
@@ -58,6 +60,13 @@ public class SkinResUtils {
         isDefaultSkin = true;
     }
 
+    public Typeface getTypeface() {
+        return typeFace;
+    }
+
+    public void setTypeface() {
+        this.typeFace = getTypeFaceFromFilePath();
+    }
 
     public int getColor(int resId) {
         if (isDefaultSkin) {
@@ -158,5 +167,30 @@ public class SkinResUtils {
 
         }
         return null;
+    }
+
+    /**
+     * "/sdcard/specified.ttf"
+     */
+    public Typeface getTypeFaceFromFilePath() {
+        String fontPath = SkinSpUtils.getInstance().getTypeFacePath();
+        if (TextUtils.isEmpty(fontPath))
+            return Typeface.DEFAULT;
+        return Typeface.createFromFile(fontPath);
+    }
+
+    /**
+     * 全局设置字体
+     */
+    public Typeface applyTypeFace() {
+        try {
+            Field field = Typeface.class.getDeclaredField("SERIF");
+            field.setAccessible(true);
+            field.set(null, typeFace);
+            return typeFace;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Typeface.DEFAULT;
     }
 }

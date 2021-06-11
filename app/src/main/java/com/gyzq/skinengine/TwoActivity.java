@@ -29,7 +29,13 @@ public class TwoActivity extends Activity {
         findViewById(R.id.ziti).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SkinManager.getInstance().setSkinTypeface();
+                SkinManager.getInstance().setTypeface("/sdcard/specified.ttf");
+            }
+        });
+        findViewById(R.id.zitichongzhi).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SkinManager.getInstance().resetDefaultTypeface();
             }
         });
     }

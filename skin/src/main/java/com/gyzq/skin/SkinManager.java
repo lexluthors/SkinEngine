@@ -5,14 +5,12 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
-import android.graphics.Typeface;
 import android.text.TextUtils;
 
 import com.gyzq.skin.utils.SkinResUtils;
 import com.gyzq.skin.utils.SkinSpUtils;
 
 import java.io.File;
-import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Observable;
@@ -69,6 +67,7 @@ public class SkinManager extends Observable {
         application.registerActivityLifecycleCallbacks(new SkinActivityLifecycleCallbacks());
         //加载当前皮肤，默认皮肤
         loadSkin(SkinSpUtils.getInstance().getSkin());
+        SkinResUtils.getInstance().applyTypeFace();
     }
 
 //    void changeSkin(String skinPath){
@@ -138,16 +137,16 @@ public class SkinManager extends Observable {
         notifyObservers(SkinType.SKIN);
     }
 
-    public void setSkinTypeface() {
+    public void resetDefaultTypeface() {
+        // 记录使用默认皮肤，重置为空，重置为默认皮肤
+        setTypeface("");
+    }
+
+    public void setTypeface(String path) {
+        SkinSpUtils.getInstance().setTypeFacePath(path);
+        SkinResUtils.getInstance().setTypeface();
         setChanged();
         notifyObservers(SkinType.TYPEFACE);
-        Typeface typeFace = Typeface.createFromFile("/sdcard/specified.ttf");
-        try {
-            Field field = Typeface.class.getDeclaredField("SERIF");
-            field.setAccessible(true);
-            field.set(null, typeFace);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        SkinResUtils.getInstance().applyTypeFace();
     }
 }

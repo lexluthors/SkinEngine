@@ -56,6 +56,7 @@ public class SkinLayoutInflaterFactory implements LayoutInflater.Factory2, Obser
             }
         } else if (arg.equals(SkinType.TYPEFACE)) {
             System.out.println("换字体");
+            skinAttribute.applyTypeFace();
         }
 
     }
