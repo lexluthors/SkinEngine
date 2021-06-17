@@ -59,7 +59,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="果园点金"
-        android:textColor="@color/gy6"
+        android:textColor="@color/gy7"
           />
 
 </LinearLayout>

@@ -1,3 +1,4 @@
 rootProject.name = "skinEngine"
 include ':app'
 include ':skin'
+include ':multilanguage'

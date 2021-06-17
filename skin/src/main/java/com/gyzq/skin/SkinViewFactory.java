@@ -3,7 +3,6 @@ package com.gyzq.skin;
 import android.content.Context;
 import android.support.v4.util.ArrayMap;
 import android.util.AttributeSet;
-import android.view.InflateException;
 import android.view.View;
 
 import java.lang.reflect.Constructor;
@@ -57,10 +56,8 @@ public class SkinViewFactory {
         }
     }
 
-    private static View createView(Context context, String name, String prefix)
-            throws ClassNotFoundException, InflateException {
+    private static View createView(Context context, String name, String prefix){
         Constructor<? extends View> constructor = sConstructorMap.get(name);
-
         try {
             if (constructor == null) {
                 // 反射创建view
@@ -77,30 +74,4 @@ public class SkinViewFactory {
             return null;
         }
     }
-
-
-    //    private View createView(Context context, String name, AttributeSet attrs) {
-//        Log.i(TAG, "createView:" + name);
-//        View view = null;
-//        try {
-//            if (-1 == name.indexOf('.')) {
-//                if ("View".equals(name)) {
-//                    view = LayoutInflater.from(context).createView(name, "android.view.", attrs);
-//                }
-//                if (view == null) {
-//                    view = LayoutInflater.from(context).createView(name, "android.widget.", attrs);
-//                }
-//                if (view == null) {
-//                    view = LayoutInflater.from(context).createView(name, "android.webkit.", attrs);
-//                }
-//            } else {
-//                view = LayoutInflater.from(context).createView(name, null, attrs);
-//            }
-//
-//        } catch (Exception e) {
-//            SkinL.e(TAG, "Error while create 【" + name + "】 : " + e.getMessage());
-//            view = null;
-//        }
-//        return view;
-//    }
 }
