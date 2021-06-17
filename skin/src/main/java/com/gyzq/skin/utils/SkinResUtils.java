@@ -125,8 +125,7 @@ public class SkinResUtils {
         //R.drawable.ic_launcher
         String resName = mAppResources.getResourceEntryName(resId);//ic_launcher   /colorPrimaryDark
         String resType = mAppResources.getResourceTypeName(resId);//drawable
-        int skinId = mSkinResources.getIdentifier(resName, resType, mSkinPackageName);
-        return skinId;
+        return mSkinResources.getIdentifier(resName, resType, mSkinPackageName);
     }
 
     /**
@@ -145,7 +144,7 @@ public class SkinResUtils {
                 return Typeface.createFromAsset(mAppResources.getAssets(), skinTypefacePath);
             }
             return Typeface.createFromAsset(mSkinResources.getAssets(), skinTypefacePath);
-        } catch (Exception e) {
+        } catch (Exception ignored) {
         }
         return Typeface.DEFAULT;
     }

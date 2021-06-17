@@ -70,28 +70,6 @@ public class SkinManager extends Observable {
         SkinResUtils.getInstance().applyTypeFace();
     }
 
-//    void changeSkin(String skinPath){
-//        try {
-//            File file = new File(skinPath);
-//            if (!file.exists()) {
-//                return;
-//            }
-//            Resources resources = mContext.getResources();
-//            PackageManager mPm = mContext.getPackageManager();
-//            PackageInfo mInfo = mPm.getPackageArchiveInfo(skinPath, PackageManager.GET_ACTIVITIES);
-//            String skinPackageName = mInfo.packageName;
-//            AssetManager assetManager = AssetManager.class.newInstance();
-//            Method addAssetPath = assetManager.getClass().getMethod("addAssetPath", String.class);
-//            addAssetPath.invoke(assetManager, skinPath);
-//
-//            resources = new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//
-//
-//    }
-
     /**
      * 加载指定的皮肤包
      *
