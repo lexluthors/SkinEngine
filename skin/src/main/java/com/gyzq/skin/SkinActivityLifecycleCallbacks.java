@@ -70,6 +70,9 @@ public class SkinActivityLifecycleCallbacks implements Application.ActivityLifec
     public void onActivityDestroyed(@NonNull Activity activity) {
         //通过activity删除布局工厂
         SkinLayoutInflaterFactory skinLayoutInflaterFactory = mSkinLayoutInflaterFactoryHashMap.remove(activity);
+        if (skinLayoutInflaterFactory!=null){
+            skinLayoutInflaterFactory.destroyView();
+        }
         //解绑注册
         SkinManager.getInstance().deleteObserver(skinLayoutInflaterFactory);
     }

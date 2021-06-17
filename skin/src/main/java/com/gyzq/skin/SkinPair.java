@@ -12,7 +12,9 @@ public class SkinPair {
         this.resId = resId;
     }
 
+    //属性名
     private String attributeName;
+    //资源id
     private int resId;
 
     public String getAttributeName() {

@@ -105,4 +105,8 @@ public class SkinLayoutInflaterFactory implements LayoutInflater.Factory2, Obser
     public View onCreateView(@NonNull String name, @NonNull Context context, @NonNull AttributeSet attrs) {
         return null;
     }
+
+    void destroyView(){
+        skinAttribute.destroyView();
+    }
 }

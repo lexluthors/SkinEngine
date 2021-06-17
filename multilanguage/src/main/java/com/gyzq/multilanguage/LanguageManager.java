@@ -130,7 +130,7 @@ public class LanguageManager {
                 locale = Locale.getDefault();
             }
         }else {
-            locale = mLanguage.getDefalutLocale();
+            locale = mLanguage.getDefaultLocale();
         }
 
         return locale;

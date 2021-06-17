@@ -140,4 +140,8 @@ public class SkinAttribute {
         }
     }
 
+    void destroyView(){
+        mSkinViewItems.clear();
+    }
+
 }

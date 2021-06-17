@@ -15,7 +15,7 @@ public class Language {
     //自定义模式下,默认语言
     private static final Locale DEFALUT_LOCALE = Locale.CHINA;
     private MODE mode;
-    private Locale defalutLocale;
+    private Locale defaultLocale;
     private List<Locale> locales;
 
     public Language(MODE mode, Locale defalutLocale, List<Locale> locales) {
@@ -26,7 +26,7 @@ public class Language {
         if (locales == null){
             locales = DEFALUT_LOCALES;
         }
-        this.defalutLocale = defalutLocale;
+        this.defaultLocale = defalutLocale;
         this.locales = locales;
     }
 
@@ -54,12 +54,12 @@ public class Language {
         this.mode = mode;
     }
 
-    public Locale getDefalutLocale() {
-        return defalutLocale;
+    public Locale getDefaultLocale() {
+        return defaultLocale;
     }
 
-    public void setDefalutLocale(Locale defalutLocale) {
-        this.defalutLocale = defalutLocale;
+    public void setDefaultLocale(Locale defaultLocale) {
+        this.defaultLocale = defaultLocale;
     }
 
     public enum MODE{
