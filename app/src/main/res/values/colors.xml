@@ -16,4 +16,12 @@
     <color name="gy5">#087658</color>
     <color name="gy6">#009978</color>
     <color name="gy7">#232515</color>
+
+    <color name="text_color">#333333</color>
+    <color name="layout_bg_color">#aaaaaa</color>
+    <color name="text_bg_color">#eeeeee</color>
+    <color name="button_bg_color">#eeeeee</color>
+    <color name="listview_bg_color">#eeeeee</color>
+    <color name="listview_item_text_color">#333333</color>
+
 </resources>

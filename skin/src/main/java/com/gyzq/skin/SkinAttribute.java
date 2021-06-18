@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.gyzq.skin.utils.SkinResUtils;
 import com.gyzq.skin.utils.SkinSpUtils;
+import com.gyzq.skin.utils.SkinThemeUtils;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ import java.util.ArrayList;
  */
 public class SkinAttribute {
 
-
+    //用于保存view和view的各个属性的集合
     private final ArrayList<SkinViewItem> mSkinViewItems;
 
     public SkinAttribute() {
@@ -52,12 +53,19 @@ public class SkinAttribute {
                         continue;
                     }
                 }
+                //判断前缀字符串 是否是"?"
+                if (attributeValue.startsWith("?")) {
+                    //系统属性值,比如：android:textColor="?colorAccent"，则属性ID的名称是从属性值下标1的位置开始，注意：它在R中是一个int类型的
+                    int attrId = Integer.parseInt(attributeValue.substring(1));
+                    resId = SkinThemeUtils.getResId(view.getContext(), new int[]{attrId})[0];
+                }
                 skinPairs.add(new SkinPair(attributeName, resId));
             }
 
         }
         skinViewItem.setSkinAttrs(skinPairs);
         mSkinViewItems.add(skinViewItem);
+        //后期优化这里
         if(new File(SkinSpUtils.getInstance().getSkin()).exists()){
             //如果设置了皮肤，而且皮肤存在，就加载皮肤资源
             applySkin();

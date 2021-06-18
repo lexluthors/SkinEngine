@@ -10,18 +10,24 @@
     tools:context=".MainActivity">
 
     <Button
+        android:background="@color/text_bg_color"
+        android:textColor="@color/text_color"
+        android:layout_marginTop="@dimen/dp_10"
         android:id="@+id/huanfu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="换肤"/>
     <Button
+        android:background="@color/text_bg_color"
+        android:textColor="@color/text_color"
+        android:layout_marginTop="@dimen/dp_10"
         android:id="@+id/chongzhi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="默认皮肤"/>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycleview"
-        android:background="@color/gy6"
+        android:background="@color/listview_bg_color"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />

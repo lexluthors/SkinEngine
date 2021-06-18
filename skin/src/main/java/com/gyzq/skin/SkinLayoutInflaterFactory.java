@@ -92,6 +92,7 @@ public class SkinLayoutInflaterFactory implements LayoutInflater.Factory2, Obser
             System.out.println("皮肤换肤");
             if (skinAttribute != null) {
                 skinAttribute.applySkin();
+                System.out.println("结束时间》》》》"+System.currentTimeMillis());
             }
         } else if (SkinType.TYPEFACE == arg) {
             System.out.println("换字体");

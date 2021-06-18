@@ -13,6 +13,6 @@
         android:layout_width="match_parent"
         android:text="测试效果如何"
         android:gravity="center"
-        android:textColor="@color/gy1"
+        android:textColor="@color/text_color"
         android:layout_height="80dp"/>
 </LinearLayout>

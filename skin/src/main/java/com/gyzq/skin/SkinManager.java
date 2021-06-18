@@ -76,6 +76,7 @@ public class SkinManager extends Observable {
      * @param path 皮肤包路径，本地路径
      */
     public void loadSkin(String path) {
+        System.out.println("开始时间》》》》"+System.currentTimeMillis());
         if (!TextUtils.isEmpty(path) && new File(path).exists()) {
             try {
                 //反射创建AssetManager

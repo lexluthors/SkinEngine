@@ -13,6 +13,12 @@ public class TwoActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_two);
+        findViewById(R.id.huanfu).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SkinManager.getInstance().loadSkin("/sdcard/app-debug.apk");
+            }
+        });
         findViewById(R.id.jumpToTwo).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
