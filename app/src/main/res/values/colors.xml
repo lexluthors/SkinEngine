@@ -19,9 +19,10 @@
 
     <color name="text_color">#333333</color>
     <color name="layout_bg_color">#aaaaaa</color>
-    <color name="text_bg_color">#eeeeee</color>
-    <color name="button_bg_color">#eeeeee</color>
+    <color name="text_bg_color">#ffffff</color>
+    <color name="button_bg_color">#ffffff</color>
     <color name="listview_bg_color">#eeeeee</color>
     <color name="listview_item_text_color">#333333</color>
+
 
 </resources>
