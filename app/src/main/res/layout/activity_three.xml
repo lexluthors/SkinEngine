@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@mipmap/ic_launcher"
+    android:background="@drawable/layout_image_bg"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
@@ -62,20 +62,25 @@
         android:layout_height="100dp"
         android:text="Hello World!"
           />
-    <ImageView
+    <com.gyzq.skinengine.CircleImageView
+        android:layout_marginTop="20dp"
         android:layout_width="100dp"
-        android:layout_height="200dp"
+        android:layout_height="100dp"
+        android:scaleType="centerCrop"
         android:src="@mipmap/p_login_bg"
          />
+    <TextView
+        android:textColor="@color/text_color"
+        android:layout_width="wrap_content"
+        android:text="这是自定义view圆形图片"
+        android:layout_height="wrap_content"/>
     <TextView
         android:drawableTop="@drawable/ic_mood"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="果园点金"
+        android:text="国元点金"
+        android:layout_marginTop="20dp"
         android:textColor="@color/text_color"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        />
 
 </LinearLayout>

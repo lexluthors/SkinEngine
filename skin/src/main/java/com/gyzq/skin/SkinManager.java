@@ -36,6 +36,8 @@ public class SkinManager extends Observable {
         mSupportAttr.add("drawableRight");
         mSupportAttr.add("drawableBottom");
         mSupportAttr.add("skinTypeface");
+        mSupportAttr.add("drawableStart");
+        mSupportAttr.add("drawableEnd");
     }
 
     public static final String[] mClassPrefixList = {

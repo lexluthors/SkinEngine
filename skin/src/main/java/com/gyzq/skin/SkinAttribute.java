@@ -126,12 +126,14 @@ public class SkinAttribute {
                             (resId));
                     break;
                 case "drawableLeft":
+                case "drawableStart":
                     left = SkinResUtils.getInstance().getDrawable(resId);
                     break;
                 case "drawableTop":
                     top = SkinResUtils.getInstance().getDrawable(resId);
                     break;
                 case "drawableRight":
+                case "drawableEnd":
                     right = SkinResUtils.getInstance().getDrawable(resId);
                     break;
                 case "drawableBottom":

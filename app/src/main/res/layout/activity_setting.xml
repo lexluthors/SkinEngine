@@ -72,7 +72,7 @@
         android:drawableTop="@drawable/ic_mood"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="果园点金"
+        android:text="国元点金"
         android:textColor="@color/gy6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
