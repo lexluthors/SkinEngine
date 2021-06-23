@@ -1,14 +1,17 @@
 package com.gyzq.skin;
 
+import android.content.Context;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.v4.view.ViewCompat;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.gyzq.skin.language.LanguageManager;
 import com.gyzq.skin.utils.SkinResUtils;
 import com.gyzq.skin.utils.SkinSpUtils;
 import com.gyzq.skin.utils.SkinThemeUtils;
@@ -91,6 +94,36 @@ public class SkinAttribute {
             if (view instanceof TextView){
                 //是textview就换字体
                 ((TextView) view).setTypeface(typeface);
+            }
+        }
+    }
+
+    /**
+     * 切换语言
+     */
+    void applyLanguage() {
+        Context context = null;
+        for (SkinViewItem mSkinViewItem : mSkinViewItems) {
+            View view = mSkinViewItem.getView();
+            if (view instanceof TextView){
+                //是textview就换字体
+                TextView textView = (TextView) view;
+                if (null == context){
+                    context = textView.getContext();
+                    LanguageManager.getInstance().attachBaseContext(context);
+                }
+                //设置resource的config
+                ArrayList<SkinPair> skinPairs = mSkinViewItem.getSkinAttrs();
+                int size = skinPairs.size();
+                for (int i = 0; i < size; i++) {
+                    if (TextUtils.equals("text",skinPairs.get(i).getAttributeName())||TextUtils.equals("hint",skinPairs.get(i).getAttributeName())){
+                        int id = skinPairs.get(i).getResId();
+                        if (id != 0){
+                            textView.setTextLocale(LanguageManager.getPreferredLocale());
+                            textView.setText(id);
+                        }
+                    }
+                }
             }
         }
     }

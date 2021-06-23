@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">guoyuanapp</string>
+    <string name="test1">立刻给家里空间</string>
+    <string name="test2">挂机了赶紧离开</string>
+    <string name="test3">发生的发生</string>
+    <string name="test4">个人户合适的话</string>
+    <string name="test5">调节人体今日退回</string>
+    <string name="test6">回头一看他依然可以同仁堂</string>
+    <string name="huanfu">换肤</string>
+    <string name="morenpifu">默认皮肤</string>
+    <string name="jumpTonext">跳到下一个界面</string>
+    <string name="jumpToList">跳到列表</string>
+    <string name="fanti">繁体</string>
+    <string name="jianti">简体</string>
+    <string name="followSys">跟随系统</string>
+    <string name="settingFontSize">设置字体变大25</string>
+    <string name="jumpToThree">跳转到第三个界面</string>
+    <string name="changeFont">修改字体</string>
+    <string name="defalutFont">默认字体</string>
+    <string name="guoyuandianjin">国元点金</string>
+    <string name="English">英语</string>
+</resources>

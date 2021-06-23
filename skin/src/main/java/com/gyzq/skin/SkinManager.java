@@ -38,6 +38,8 @@ public class SkinManager extends Observable {
         mSupportAttr.add("skinTypeface");
         mSupportAttr.add("drawableStart");
         mSupportAttr.add("drawableEnd");
+        mSupportAttr.add("text");
+        mSupportAttr.add("hint");
     }
 
     public static final String[] mClassPrefixList = {
@@ -129,5 +131,11 @@ public class SkinManager extends Observable {
         setChanged();
         notifyObservers(SkinType.TYPEFACE);
         SkinResUtils.getInstance().applyTypeFace();
+    }
+
+    //通知每个界面切换语言
+    public void setLanguage() {
+        setChanged();
+        notifyObservers(SkinType.LANGUAGE);
     }
 }

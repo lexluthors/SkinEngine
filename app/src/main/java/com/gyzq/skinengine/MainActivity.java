@@ -2,17 +2,18 @@ package com.gyzq.skinengine;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.gyzq.skin.SkinManager;
+import com.gyzq.skin.language.Language;
+import com.gyzq.skin.language.LanguageManager;
 import com.hjq.permissions.OnPermissionCallback;
 import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 SkinManager.getInstance().resetDefaultSkin();
+                LanguageManager.getInstance().applyLanguage(new Language(Language.MODE.CUSTOM,LanguageManager.getEnLanguage()));
             }
         });
         findViewById(R.id.jumpToStart).setOnClickListener(new View.OnClickListener() {

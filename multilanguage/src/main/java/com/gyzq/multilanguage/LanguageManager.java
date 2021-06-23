@@ -6,6 +6,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.LocaleList;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 
 import java.util.HashMap;
@@ -60,8 +61,8 @@ public class LanguageManager {
      */
     public static String getSaveLanguage(Context context) {
         //获取首选语言
-        String preferredLanguage = getPreferredLanguage().getLanguage();
-        return LanguageSpUtils.getInstance().getLanguage();
+        // return LanguageSpUtils.getInstance().getLanguage();
+        return getPreferredLanguage().getLanguage();
     }
 
     /**
@@ -134,5 +135,44 @@ public class LanguageManager {
         }
 
         return locale;
+    }
+
+    public void changeAppLanguage(Context context) {
+        String sta = LanguageSpUtils.getInstance().getLanguage();
+        if(TextUtils.isEmpty(sta)){
+            // 本地语言设置
+     /*       Locale myLocale = new Locale(sta);
+            Resources res = getResources();
+            DisplayMetrics dm = res.getDisplayMetrics();
+            Configuration conf = res.getConfiguration();
+            conf.locale = myLocale;
+            res.updateConfiguration(conf, dm);*/
+            // 本地语言设置
+            //  Locale locale = new Locale("ug", Locale.CHINA.getCountry());
+            Locale myLocale=null;
+            if(sta.equals("zh_CN")){
+                myLocale = new Locale(sta,Locale.CHINESE.getCountry());
+            }else if(sta.equals("zh_TW")){
+                myLocale = new Locale("TW",Locale.TRADITIONAL_CHINESE.getCountry());
+            }else  if(sta.equals("en")||sta.equals("en_US")){
+                myLocale = new Locale( "en",Locale.ENGLISH.getCountry());
+            }
+            Resources res = context.getResources();
+            DisplayMetrics dm = res.getDisplayMetrics();
+            Configuration conf = res.getConfiguration();
+            conf.locale = myLocale;
+            res.updateConfiguration(conf, dm);
+        }
+
+    }
+
+    public static Locale getTWLanguage(){
+        return new Locale("TW",Locale.TRADITIONAL_CHINESE.getCountry());
+    }
+    public static Locale getEnLanguage(){
+        return new Locale("en",Locale.ENGLISH.getCountry());
+    }
+    public static Locale getCnLanguage(){
+        return new Locale("zh",Locale.CHINESE.getCountry());
     }
 }

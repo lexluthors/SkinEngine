@@ -4,6 +4,7 @@ package com.gyzq.skinengine;
 import android.app.Application;
 
 import com.gyzq.skin.SkinManager;
+import com.gyzq.skin.language.LanguageManager;
 
 
 /**
@@ -16,5 +17,8 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         SkinManager.init(this);
+
+        //new Language(Language.MODE.CUSTOM, LanguageManager.getTWLanguage())
+        LanguageManager.init(this);
     }
 }

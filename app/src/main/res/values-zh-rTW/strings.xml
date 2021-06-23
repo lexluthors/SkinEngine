@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">fkasjgl</string>
+    <string name="test1">立刻給家裏空間</string>
+    <string name="test2">掛機了趕緊離開</string>
+    <string name="test3">發生的發生</string>
+    <string name="test4">個人戶合適的話</string>
+    <string name="test5">調節人體今日退回</string>
+    <string name="test6">回頭一看他依然可以同仁堂</string>
+
+
+
+    <string name="huanfu">換膚</string>
+
+    <string name="morenpifu">默認皮膚</string>
+
+    <string name="jumpTonext">跳到下一個介面</string>
+
+    <string name="jumpToList">跳到清單</string>
+
+    <string name="fanti">繁體</string>
+
+    <string name="jianti">簡體</string>
+
+    <string name="followSys">跟隨系統</string>
+
+    <string name="settingFontSize">設置字體變大25</string>
+
+    <string name="jumpToThree">跳轉到第三個介面</string>
+
+    <string name="changeFont">修改字體</string>
+
+    <string name="defalutFont">預設字體</string>
+
+    <string name="guoyuandianjin">國元點金</string>
+    <string name="English">英語</string>
+</resources>

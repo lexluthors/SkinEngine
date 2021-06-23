@@ -11,6 +11,7 @@
 
 
     <LinearLayout
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -19,9 +20,8 @@
             android:id="@+id/jumpToTwo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
             android:background="@color/button_bg_color"
-            android:text="跳转到第三个界面"
+            android:text="@string/jumpToThree"
             android:textColor="@color/text_color" />
 
         <Button
@@ -30,28 +30,30 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:background="@color/button_bg_color"
-            android:text="默认皮肤"
+            android:text="@string/morenpifu"
             android:textColor="@color/text_color" />
 
-        <Button
-            android:id="@+id/ziti"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:background="@color/button_bg_color"
-            android:text="修改字体"
-            android:textColor="@color/text_color" />
 
-        <Button
-            android:id="@+id/zitichongzhi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:background="@color/button_bg_color"
-            android:text="默认字体"
-            android:textColor="@color/text_color" />
+
     </LinearLayout>
-
+    <Button
+        android:layout_marginTop="@dimen/dp_10"
+        android:id="@+id/ziti"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:background="@color/button_bg_color"
+        android:text="@string/changeFont"
+        android:textColor="@color/text_color" />
+    <Button
+        android:layout_marginTop="@dimen/dp_10"
+        android:id="@+id/zitichongzhi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:background="@color/button_bg_color"
+        android:text="@string/defalutFont"
+        android:textColor="@color/text_color" />
     <Button
         android:layout_marginTop="@dimen/dp_10"
         android:id="@+id/huanfu"
@@ -60,7 +62,7 @@
         android:layout_marginStart="@dimen/dp_10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="换肤"/>
+        android:text="@string/huanfu"/>
 
 
     <Button
@@ -70,7 +72,7 @@
         android:layout_marginTop="@dimen/dp_10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="这是一个selector"
+        android:text="@string/test6"
         />
 
     <TextView
@@ -79,7 +81,7 @@
         android:layout_marginTop="@dimen/dp_10"
         android:background="@color/text_bg_color"
         android:padding="@dimen/dp_10"
-        android:text="Hello World!"
+        android:text="@string/test6"
         android:textColor="@color/gy2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -91,7 +93,7 @@
         android:layout_height="100dp"
         android:layout_marginTop="@dimen/dp_10"
         android:background="@mipmap/p_login_bg"
-        android:text="这是一个textview"
+        android:text="@string/test4"
         android:gravity="bottom|center"
         android:textColor="@color/text_color"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -108,7 +110,7 @@
         android:layout_marginTop="@dimen/dp_10"
         android:background="@color/gy6"
         android:padding="@dimen/dp_10"
-        android:text="Hello World!"
+        android:text="@string/test2"
         android:textColor="@color/gy1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -133,7 +135,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableBottom="@drawable/ic_mood"
-            android:text="国元点金"
+            android:text="@string/guoyuandianjin"
             android:textColor="@color/gy6"
             />
         <TextView
@@ -141,7 +143,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/ic_mood"
-            android:text="国元点金"
+            android:text="@string/guoyuandianjin"
             android:textColor="@color/gy6"
             />
         <TextView
@@ -149,7 +151,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableEnd="@drawable/ic_mood"
-            android:text="国元点金"
+            android:text="@string/guoyuandianjin"
             android:textColor="@color/gy6"
             />
     </LinearLayout>

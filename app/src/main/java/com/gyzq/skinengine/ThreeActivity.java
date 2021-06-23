@@ -2,12 +2,16 @@ package com.gyzq.skinengine;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.TextView;
 
 import com.gyzq.skin.SkinManager;
+import com.gyzq.skin.font.DisplayUtil;
+import com.gyzq.skin.language.Language;
+import com.gyzq.skin.language.LanguageManager;
+import com.gyzq.skin.utils.SkinResUtils;
 
-public class ThreeActivity extends AppCompatActivity {
+public class ThreeActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,5 +36,43 @@ public class ThreeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        //繁体
+        findViewById(R.id.jianfanti).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LanguageManager.getInstance().applyLanguage(new Language(Language.MODE.CUSTOM, LanguageManager.getTWLanguage()));
+            }
+        });
+        //简体
+        findViewById(R.id.jianti).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LanguageManager.getInstance().applyLanguage(new Language(Language.MODE.CUSTOM, LanguageManager.getZhLanguage()));
+            }
+        });
+        //跟随系统
+        findViewById(R.id.gensuixitong).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LanguageManager.getInstance().applyLanguage(new Language(Language.MODE.AUTO, LanguageManager.getTWLanguage()));
+            }
+        });
+        //切换英文
+        findViewById(R.id.english).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LanguageManager.getInstance().applyLanguage(new Language(Language.MODE.CUSTOM, LanguageManager.getEnLanguage()));
+            }
+        });
+       TextView changeFontSize =  findViewById(R.id.changeFontSize);
+       changeFontSize.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               System.out.println("字体大小>>>>"+changeFontSize.getTextSize());
+               SkinResUtils.getInstance().changeFontScale(2.0f);
+               System.out.println("字体大小>>>>"+ DisplayUtil.px2sp(getActivity(),changeFontSize.getTextSize()));
+
+           }
+       });
     }
 }

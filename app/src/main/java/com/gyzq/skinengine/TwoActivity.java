@@ -1,13 +1,12 @@
 package com.gyzq.skinengine;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import com.gyzq.skin.SkinManager;
 
-public class TwoActivity extends Activity {
+public class TwoActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
