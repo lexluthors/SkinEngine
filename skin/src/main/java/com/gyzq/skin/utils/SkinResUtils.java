@@ -210,7 +210,7 @@ public class SkinResUtils {
 
     }
 
-    public void changeFontScale(Activity activity,float fontScale) {
+    public void changeFontScale(Activity activity, float fontScale) {
         Configuration con = activity.getResources().getConfiguration();
         con.fontScale = fontScale;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {

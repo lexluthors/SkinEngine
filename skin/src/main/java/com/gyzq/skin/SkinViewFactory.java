@@ -56,7 +56,7 @@ public class SkinViewFactory {
         }
     }
 
-    private static View createView(Context context, String name, String prefix){
+    private static View createView(Context context, String name, String prefix) {
         Constructor<? extends View> constructor = sConstructorMap.get(name);
         try {
             if (constructor == null) {

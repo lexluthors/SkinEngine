@@ -20,10 +20,10 @@ public class Language {
 
     public Language(MODE mode, Locale defaultLocale, List<Locale> locales) {
         this.mode = mode;
-        if (defaultLocale == null){
+        if (defaultLocale == null) {
             defaultLocale = DEFAULT_LOCALE;
         }
-        if (locales == null){
+        if (locales == null) {
             locales = DEFAULT_LOCALES;
         }
         this.defaultLocale = defaultLocale;
@@ -31,11 +31,11 @@ public class Language {
     }
 
     public Language(MODE mode, Locale defaultLocale) {
-        this(mode, defaultLocale,null);
+        this(mode, defaultLocale, null);
     }
 
     public Language(MODE mode) {
-        this(mode, null,null);
+        this(mode, null, null);
     }
 
     public List<Locale> getLocales() {
@@ -62,7 +62,7 @@ public class Language {
         this.defaultLocale = defaultLocale;
     }
 
-    public enum MODE{
+    public enum MODE {
         AUTO,
         CUSTOM
     }

@@ -121,11 +121,11 @@ public class SkinAttribute {
                         if (TextUtils.equals("text", skinPairs.get(i).getAttributeName())) {
                             //是textview就换字体
                             TextView textView = (TextView) view;
-                            textView.setTextLocale(LanguageManager.getPreferredLocale());
+                            textView.setTextLocale(LanguageManager.getInstance().getPreferredLocale());
                             textView.setText(id);
                         } else if (TextUtils.equals("hint", skinPairs.get(i).getAttributeName())) {
                             EditText editText = (EditText) view;
-                            editText.setTextLocale(LanguageManager.getPreferredLocale());
+                            editText.setTextLocale(LanguageManager.getInstance().getPreferredLocale());
                             editText.setHint(id);
                         }
                     }

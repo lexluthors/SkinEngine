@@ -92,7 +92,7 @@ public class LanguageManager {
      *
      * @return 语言
      */
-    public static String getSaveLanguage() {
+    public String getSaveLanguage() {
         //获取首选语言
         // return LanguageSpUtils.getInstance().getLanguage();
         return getPreferredLocale().getLanguage();
@@ -100,7 +100,7 @@ public class LanguageManager {
 
 
     @TargetApi(Build.VERSION_CODES.N)
-    private static Context createConfigurationResources(Context context, String language) {
+    private Context createConfigurationResources(Context context, String language) {
         Resources resources = context.getResources();
         Configuration configuration = resources.getConfiguration();
         Locale locale = getSupportLanguage(language);
@@ -114,7 +114,7 @@ public class LanguageManager {
      * @param context
      * @param newLanguage
      */
-    private static void applyLanguage(Context context, String newLanguage) {
+    private void applyLanguage(Context context, String newLanguage) {
         Resources resources = context.getResources();
         Configuration configuration = resources.getConfiguration();
         configuration.locale = getSupportLanguage(newLanguage);
@@ -128,7 +128,7 @@ public class LanguageManager {
      * @param language language
      * @return true:支持 false:不支持
      */
-    private static boolean isSupportLanguage(String language) {
+    private boolean isSupportLanguage(String language) {
         return mSupportLanguages.containsKey(language);
     }
 
@@ -138,8 +138,7 @@ public class LanguageManager {
      * @param language language
      * @return 支持返回支持语言，不支持返回系统首选语言
      */
-    @TargetApi(Build.VERSION_CODES.N)
-    private static Locale getSupportLanguage(String language) {
+    private Locale getSupportLanguage(String language) {
         if (isSupportLanguage(language)) {
             return mSupportLanguages.get(language);
         }
@@ -153,7 +152,7 @@ public class LanguageManager {
      *
      * @return Locale
      */
-    public static Locale getPreferredLocale() {
+    public Locale getPreferredLocale() {
         Locale locale;
         //跟随系统
         if (mLanguageMode == Language.MODE.AUTO) {
