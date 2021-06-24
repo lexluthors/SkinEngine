@@ -3,32 +3,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:background="@mipmap/ic_launcher"
     android:layout_height="match_parent"
+    android:background="@mipmap/ic_launcher"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <Button
-        android:background="@color/text_bg_color"
-        android:textColor="@color/text_color"
-        android:layout_marginTop="@dimen/dp_10"
         android:id="@+id/huanfu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/huanfu"/>
-    <Button
-        android:background="@color/text_bg_color"
-        android:textColor="@color/text_color"
         android:layout_marginTop="@dimen/dp_10"
+        android:background="@color/text_bg_color"
+        android:text="@string/huanfu"
+        android:textAllCaps="false"
+        android:textColor="@color/text_color" />
+
+    <Button
         android:id="@+id/chongzhi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/morenpifu"/>
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@color/text_bg_color"
+        android:text="@string/morenpifu"
+        android:textAllCaps="false"
+        android:textColor="@color/text_color" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycleview"
-        android:background="@color/listview_bg_color"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        />
+        android:background="@color/listview_bg_color" />
 </LinearLayout>

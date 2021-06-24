@@ -110,6 +110,7 @@ public class LanguageManager {
 
     /**
      * 提交新的语言
+     *
      * @param context
      * @param newLanguage
      */
@@ -123,6 +124,7 @@ public class LanguageManager {
 
     /**
      * 是否支持此语言，一共三种，简繁英
+     *
      * @param language language
      * @return true:支持 false:不支持
      */
@@ -148,6 +150,7 @@ public class LanguageManager {
      * 获取首选语言
      * 1.自动模式下: 优先选择系统语言
      * 2.自定义模式下: 优先选择设置的默认语言
+     *
      * @return Locale
      */
     public static Locale getPreferredLocale() {

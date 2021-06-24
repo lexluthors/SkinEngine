@@ -8,6 +8,7 @@ import android.support.v4.view.ViewCompat;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -33,6 +34,7 @@ public class SkinAttribute {
         this.mSkinViewItems = new ArrayList<>();
     }
 
+    //解析属性集合，保存到list中
     void parseSkinAttr(View view, AttributeSet attributeSet) {
         SkinViewItem skinViewItem = new SkinViewItem();
         skinViewItem.setView(view);
@@ -69,7 +71,7 @@ public class SkinAttribute {
         skinViewItem.setSkinAttrs(skinPairs);
         mSkinViewItems.add(skinViewItem);
         //后期优化这里
-        if(new File(SkinSpUtils.getInstance().getSkin()).exists()){
+        if (new File(SkinSpUtils.getInstance().getSkin()).exists()) {
             //如果设置了皮肤，而且皮肤存在，就加载皮肤资源
             applySkin();
         }
@@ -91,7 +93,7 @@ public class SkinAttribute {
         Typeface typeface = SkinResUtils.getInstance().getTypeface();
         for (SkinViewItem mSkinViewItem : mSkinViewItems) {
             View view = mSkinViewItem.getView();
-            if (view instanceof TextView){
+            if (view instanceof TextView) {
                 //是textview就换字体
                 ((TextView) view).setTypeface(typeface);
             }
@@ -105,24 +107,29 @@ public class SkinAttribute {
         Context context = null;
         for (SkinViewItem mSkinViewItem : mSkinViewItems) {
             View view = mSkinViewItem.getView();
-            if (view instanceof TextView){
-                //是textview就换字体
-                TextView textView = (TextView) view;
-                if (null == context){
-                    context = textView.getContext();
+            if (view instanceof TextView) {
+                if (null == context) {
+                    context = view.getContext();
                     LanguageManager.getInstance().attachBaseContext(context);
                 }
                 //设置resource的config
                 ArrayList<SkinPair> skinPairs = mSkinViewItem.getSkinAttrs();
                 int size = skinPairs.size();
                 for (int i = 0; i < size; i++) {
-                    if (TextUtils.equals("text",skinPairs.get(i).getAttributeName())||TextUtils.equals("hint",skinPairs.get(i).getAttributeName())){
-                        int id = skinPairs.get(i).getResId();
-                        if (id != 0){
+                    int id = skinPairs.get(i).getResId();
+                    if (id != 0) {
+                        if (TextUtils.equals("text", skinPairs.get(i).getAttributeName())) {
+                            //是textview就换字体
+                            TextView textView = (TextView) view;
                             textView.setTextLocale(LanguageManager.getPreferredLocale());
                             textView.setText(id);
+                        } else if (TextUtils.equals("hint", skinPairs.get(i).getAttributeName())) {
+                            EditText editText = (EditText) view;
+                            editText.setTextLocale(LanguageManager.getPreferredLocale());
+                            editText.setHint(id);
                         }
                     }
+
                 }
             }
         }
@@ -183,7 +190,7 @@ public class SkinAttribute {
         }
     }
 
-    void destroyView(){
+    void destroyView() {
         mSkinViewItems.clear();
     }
 

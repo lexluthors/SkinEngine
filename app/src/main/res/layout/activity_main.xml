@@ -13,41 +13,47 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <Button
+            android:textAllCaps="false"
             android:id="@+id/huanfu"
             android:background="@color/text_bg_color"
             android:textColor="@color/text_color"
             android:layout_marginStart="@dimen/dp_10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/huanfu"/>
+            android:text="@string/huanfu" />
+
         <Button
+            android:textAllCaps="false"
             android:background="@color/text_bg_color"
             android:textColor="@color/text_color"
             android:layout_marginStart="@dimen/dp_10"
             android:id="@+id/chongzhi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/morenpifu"/>
+            android:text="@string/morenpifu" />
+
         <Button
+            android:textAllCaps="false"
             android:background="@color/text_bg_color"
             android:textColor="@color/text_color"
             android:layout_marginStart="@dimen/dp_10"
             android:id="@+id/jumpToStart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/jumpTonext"/>
+            android:text="@string/jumpTonext" />
     </LinearLayout>
 
     <Button
+        android:textAllCaps="false"
         android:textColor="@color/text_color"
         android:background="@drawable/selector_white"
         android:padding="@dimen/dp_10"
         android:layout_marginTop="@dimen/dp_10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/test1"
-        />
+        android:text="@string/test1" />
 
     <TextView
         android:layout_marginTop="@dimen/dp_10"
@@ -56,8 +62,8 @@
         android:background="@color/gy6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/test2"
-          />
+        android:text="@string/test2" />
+
     <TextView
         android:layout_marginTop="@dimen/dp_10"
         android:padding="@dimen/dp_10"
@@ -65,8 +71,8 @@
         android:background="@color/gy5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/test3"
-         />
+        android:text="@string/test3" />
+
     <TextView
         android:layout_marginTop="@dimen/dp_10"
         android:background="@mipmap/p_login_bg"
@@ -74,29 +80,28 @@
         android:layout_height="100dp"
         android:gravity="center"
         android:textColor="@color/text_color"
-        android:text="@string/test4"
-          />
+        android:text="@string/test4" />
+
     <ImageView
         android:layout_marginTop="@dimen/dp_10"
         android:layout_width="100dp"
         android:layout_height="180dp"
-        android:src="@mipmap/p_login_bg"
-         />
+        android:src="@mipmap/p_login_bg" />
+
     <TextView
         android:layout_marginTop="@dimen/dp_10"
         android:drawableTop="@drawable/ic_mood"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/test5"
-        android:textColor="@color/gy7"
-          />
+        android:textColor="@color/gy7" />
+
     <TextView
         android:layout_marginTop="@dimen/dp_10"
         android:drawableTop="@drawable/ic_mood"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/test5"
-        android:textColor="@color/gy7"
-          />
+        android:textColor="@color/gy7" />
 
 </LinearLayout>
