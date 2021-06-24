@@ -32,7 +32,7 @@ public class LanguageManager {
     private static String mLanguageModeStr = "CUSTOM";
 
     public static void init(Context context) {
-        synchronized (SkinManager.class) {
+        synchronized (LanguageManager.class) {
             if (null == mInstance) {
                 mInstance = new LanguageManager();
             }

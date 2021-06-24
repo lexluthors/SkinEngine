@@ -46,6 +46,18 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/jar_to_st"
+        android:textAllCaps="false"
+        android:textColor="@color/text_color"
+        android:background="@drawable/selector_white"
+        android:padding="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/jar_to_st" />
+
+
+    <Button
         android:textAllCaps="false"
         android:textColor="@color/text_color"
         android:background="@drawable/selector_white"
@@ -55,6 +67,14 @@
         android:layout_height="wrap_content"
         android:text="@string/test1" />
 
+    <TextView
+        android:background="@color/text_bg_color"
+        android:id="@+id/jar_st_text"
+        android:layout_marginTop="@dimen/dp_10"
+        android:padding="@dimen/dp_10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
     <TextView
         android:layout_marginTop="@dimen/dp_10"
         android:padding="@dimen/dp_10"

@@ -25,4 +25,5 @@
     <string name="defalutFont">Default font</string>
     <string name="guoyuandianjin">National yuan point</string>
     <string name="English">English</string>
+    <string name="jar_to_st">Simplified and Traditional Chinese</string>
 </resources>
