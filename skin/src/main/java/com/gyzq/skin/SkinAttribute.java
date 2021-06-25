@@ -14,10 +14,8 @@ import android.widget.TextView;
 
 import com.gyzq.skin.language.LanguageManager;
 import com.gyzq.skin.utils.SkinResUtils;
-import com.gyzq.skin.utils.SkinSpUtils;
 import com.gyzq.skin.utils.SkinThemeUtils;
 
-import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -29,6 +27,7 @@ public class SkinAttribute {
 
     //用于保存view和view的各个属性的集合
     private final ArrayList<SkinViewItem> mSkinViewItems;
+
 
     public SkinAttribute() {
         this.mSkinViewItems = new ArrayList<>();
@@ -71,7 +70,7 @@ public class SkinAttribute {
         skinViewItem.setSkinAttrs(skinPairs);
         mSkinViewItems.add(skinViewItem);
         //后期优化这里
-        if (new File(SkinSpUtils.getInstance().getSkin()).exists()) {
+        if (SkinManager.getInstance().isExistsSkin()) {
             //如果设置了皮肤，而且皮肤存在，就加载皮肤资源
             applySkin();
         }

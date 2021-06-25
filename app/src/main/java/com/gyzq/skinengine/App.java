@@ -20,5 +20,6 @@ public class App extends Application {
 
         //new Language(Language.MODE.CUSTOM, LanguageManager.getTWLanguage())
         LanguageManager.init(this);
+        System.out.println("当前线程是多少>>>>"+Thread.currentThread().getName());
     }
 }

@@ -6,9 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.gyzq.skin.SkinManager;
-import com.gyzq.skin.language.Language;
 import com.gyzq.skin.language.LanguageConvert;
-import com.gyzq.skin.language.LanguageManager;
 import com.hjq.permissions.OnPermissionCallback;
 import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;
@@ -50,7 +48,6 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 SkinManager.getInstance().resetDefaultSkin();
-                LanguageManager.getInstance().applyLanguage(new Language(Language.MODE.CUSTOM,LanguageManager.getEnLanguage()));
             }
         });
         findViewById(R.id.jumpToStart).setOnClickListener(new View.OnClickListener() {

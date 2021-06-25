@@ -23,6 +23,11 @@ import java.util.Observable;
 public class SkinManager extends Observable {
 
     public Application mContext;
+    //当前皮肤包路径
+    public String mSkinPath;
+    //皮肤包是否存在本地
+    private final boolean isExistsSkin;
+
     private static volatile SkinManager mInstance;
 
     public static final ArrayList<String> mSupportAttr = new ArrayList<>();
@@ -68,10 +73,25 @@ public class SkinManager extends Observable {
         SkinSpUtils.init(application);
         //资源管理类 用于从app/皮肤中加载资源
         SkinResUtils.init(application);
+        mSkinPath = SkinSpUtils.getInstance().getSkin();
         application.registerActivityLifecycleCallbacks(new SkinActivityLifecycleCallbacks());
         //加载当前皮肤，默认皮肤
-        loadSkin(SkinSpUtils.getInstance().getSkin());
+        loadSkin(mSkinPath);
         SkinResUtils.getInstance().applyTypeFace();
+
+        isExistsSkin = new File(SkinManager.getInstance().getSkinPath()).exists();
+    }
+
+    public String getSkinPath() {
+        return mSkinPath;
+    }
+
+    public void setSkinPath(String mSkinPath) {
+        this.mSkinPath = mSkinPath;
+    }
+
+    public boolean isExistsSkin() {
+        return isExistsSkin;
     }
 
     /**
@@ -95,6 +115,8 @@ public class SkinManager extends Observable {
 
                 //将当前加载的皮肤记录一下
                 SkinSpUtils.getInstance().setSkin(path);
+                //设置当前皮肤路径
+                mSkinPath = path;
                 //获取外部Apk（皮肤包）包名
                 PackageManager packageManager = mContext.getPackageManager();
                 PackageInfo packageArchiveInfo = packageManager.getPackageArchiveInfo(path, PackageManager.GET_ACTIVITIES);
@@ -115,6 +137,7 @@ public class SkinManager extends Observable {
         SkinSpUtils.getInstance().setSkin("");
         //清空资源管理器、皮肤资源属性等
         SkinResUtils.getInstance().reset();
+        mSkinPath = "";
         //通知观者者
         setChanged();
         notifyObservers(SkinType.SKIN);
