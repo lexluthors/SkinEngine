@@ -1,166 +1,174 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:gravity="center"
     android:background="@drawable/layout_image_bg"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/layout_image_bg"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:textAllCaps="false"
+                android:background="@color/text_bg_color"
+                android:textColor="@color/text_color"
+                android:id="@+id/huanfu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/huanfu" />
+
+            <Button
+                android:textAllCaps="false"
+                android:layout_marginStart="@dimen/dp_10"
+                android:layout_marginEnd="@dimen/dp_10"
+                android:background="@color/text_bg_color"
+                android:textColor="@color/text_color"
+                android:id="@+id/chongzhi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/morenpifu" />
+
+            <Button
+                android:textAllCaps="false"
+                android:background="@color/text_bg_color"
+                android:textColor="@color/text_color"
+                android:id="@+id/jumpList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/jumpToList" />
+
+            <Button
+                android:textAllCaps="false"
+                android:layout_marginStart="@dimen/dp_10"
+                android:background="@color/text_bg_color"
+                android:textColor="@color/text_color"
+                android:id="@+id/jianfanti"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fanti" />
+
+        </LinearLayout>
 
         <Button
             android:textAllCaps="false"
-            android:background="@color/text_bg_color"
-            android:textColor="@color/text_color"
-            android:id="@+id/huanfu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/huanfu" />
-
-        <Button
-            android:textAllCaps="false"
+            android:layout_marginTop="@dimen/dp_10"
             android:layout_marginStart="@dimen/dp_10"
-            android:layout_marginEnd="@dimen/dp_10"
             android:background="@color/text_bg_color"
             android:textColor="@color/text_color"
-            android:id="@+id/chongzhi"
+            android:id="@+id/jianti"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/morenpifu" />
+            android:text="@string/jianti" />
 
         <Button
             android:textAllCaps="false"
-            android:background="@color/text_bg_color"
-            android:textColor="@color/text_color"
-            android:id="@+id/jumpList"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/jumpToList" />
-
-        <Button
-            android:textAllCaps="false"
+            android:layout_marginTop="@dimen/dp_10"
             android:layout_marginStart="@dimen/dp_10"
             android:background="@color/text_bg_color"
             android:textColor="@color/text_color"
-            android:id="@+id/jianfanti"
+            android:id="@+id/english"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/fanti" />
+            android:text="@string/English" />
+
+        <Button
+            android:textAllCaps="false"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginStart="@dimen/dp_10"
+            android:background="@color/text_bg_color"
+            android:textColor="@color/text_color"
+            android:id="@+id/gensuixitong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/followSys" />
+        <Button
+            android:textAllCaps="false"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginStart="@dimen/dp_10"
+            android:background="@color/text_bg_color"
+            android:textColor="@color/text_color"
+            android:id="@+id/fontScale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/normal_size_font" />
+
+        <TextView
+            android:id="@+id/changeFontSize"
+            android:layout_marginTop="@dimen/dp_10"
+            android:padding="@dimen/dp_10"
+            android:textColor="@color/gy1"
+            android:background="@color/gy6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settingFontSize" />
+
+        <TextView
+            android:layout_marginTop="@dimen/dp_10"
+            android:padding="@dimen/dp_10"
+            android:textColor="@color/gy1"
+            android:background="@color/gy6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/test6" />
+
+        <TextView
+            android:layout_marginTop="@dimen/dp_10"
+            android:padding="@dimen/dp_10"
+            android:textColor="@color/gy2"
+            android:background="@color/gy5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/test2" />
+        <EditText
+            android:layout_marginTop="@dimen/dp_10"
+            android:padding="@dimen/dp_10"
+            android:textColor="@color/gy2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/test5"
+            />
+
+
+        <TextView
+            android:layout_marginTop="@dimen/dp_10"
+            android:background="@mipmap/p_login_bg"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:text="@string/test3" />
+
+        <com.gyzq.skinengine.CircleImageView
+            android:layout_marginTop="20dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/p_login_bg" />
+
+        <TextView
+            android:textColor="@color/text_color"
+            android:layout_width="wrap_content"
+            android:text="@string/test1"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:drawableTop="@drawable/ic_mood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/test2"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/text_color" />
 
     </LinearLayout>
 
-    <Button
-        android:textAllCaps="false"
-        android:layout_marginTop="@dimen/dp_10"
-        android:layout_marginStart="@dimen/dp_10"
-        android:background="@color/text_bg_color"
-        android:textColor="@color/text_color"
-        android:id="@+id/jianti"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/jianti" />
-
-    <Button
-        android:textAllCaps="false"
-        android:layout_marginTop="@dimen/dp_10"
-        android:layout_marginStart="@dimen/dp_10"
-        android:background="@color/text_bg_color"
-        android:textColor="@color/text_color"
-        android:id="@+id/english"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/English" />
-
-    <Button
-        android:textAllCaps="false"
-        android:layout_marginTop="@dimen/dp_10"
-        android:layout_marginStart="@dimen/dp_10"
-        android:background="@color/text_bg_color"
-        android:textColor="@color/text_color"
-        android:id="@+id/gensuixitong"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/followSys" />
-    <Button
-        android:textAllCaps="false"
-        android:layout_marginTop="@dimen/dp_10"
-        android:layout_marginStart="@dimen/dp_10"
-        android:background="@color/text_bg_color"
-        android:textColor="@color/text_color"
-        android:id="@+id/fontScale"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/font_scale" />
-
-    <TextView
-        android:id="@+id/changeFontSize"
-        android:layout_marginTop="@dimen/dp_10"
-        android:padding="@dimen/dp_10"
-        android:textColor="@color/gy1"
-        android:background="@color/gy6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/settingFontSize" />
-
-    <TextView
-        android:layout_marginTop="@dimen/dp_10"
-        android:padding="@dimen/dp_10"
-        android:textColor="@color/gy1"
-        android:background="@color/gy6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/test6" />
-
-    <TextView
-        android:layout_marginTop="@dimen/dp_10"
-        android:padding="@dimen/dp_10"
-        android:textColor="@color/gy2"
-        android:background="@color/gy5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/test2" />
-    <EditText
-        android:layout_marginTop="@dimen/dp_10"
-        android:padding="@dimen/dp_10"
-        android:textColor="@color/gy2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="@string/test5"
-         />
-
-
-    <TextView
-        android:layout_marginTop="@dimen/dp_10"
-        android:background="@mipmap/p_login_bg"
-        android:layout_width="300dp"
-        android:layout_height="100dp"
-        android:text="@string/test3" />
-
-    <com.gyzq.skinengine.CircleImageView
-        android:layout_marginTop="20dp"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/p_login_bg" />
-
-    <TextView
-        android:textColor="@color/text_color"
-        android:layout_width="wrap_content"
-        android:text="@string/test1"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:drawableTop="@drawable/ic_mood"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/test2"
-        android:layout_marginTop="20dp"
-        android:textColor="@color/text_color" />
-
-</LinearLayout>
+</ScrollView>

@@ -146,10 +146,12 @@ public class SkinAttribute {
             if (view instanceof TextView) {
                 if (null == context) {
                     context = view.getContext();
-                    FontScaleUtil.applyFontScale(context,1.5f);
+                    FontScaleUtil.applyFontScale(context,SkinManager.getInstance().getFontScale());
                 }
                 float size = ((TextView) view).getTextSize();
-                ((TextView) view).setTextSize(DisplayUtil.px2sp(context,size)*1.5f);
+                //计算字体原来的大小，通过现在的尺寸除以上次缩放的倍数计算得到，然后再缩放到当前要设置的倍数
+                float originSize = size/SkinManager.getInstance().getPerFontScale();
+                ((TextView) view).setTextSize(DisplayUtil.px2sp(context,originSize)*SkinManager.getInstance().getFontScale());
             }
         }
     }

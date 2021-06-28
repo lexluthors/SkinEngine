@@ -27,6 +27,9 @@ public class SkinManager extends Observable {
     public String mSkinPath;
     //皮肤包是否存在本地
     private final boolean isExistsSkin;
+    private float mFontScale = 1f;
+    //上一个缩放倍数
+    private float mPerFontScale = 1f;
 
     private static volatile SkinManager mInstance;
 
@@ -74,6 +77,7 @@ public class SkinManager extends Observable {
         //资源管理类 用于从app/皮肤中加载资源
         SkinResUtils.init(application);
         mSkinPath = SkinSpUtils.getInstance().getSkin();
+        mFontScale = SkinSpUtils.getInstance().getFontScale();
         application.registerActivityLifecycleCallbacks(new SkinActivityLifecycleCallbacks());
         //加载当前皮肤，默认皮肤
         loadSkin(mSkinPath);
@@ -92,6 +96,14 @@ public class SkinManager extends Observable {
 
     public boolean isExistsSkin() {
         return isExistsSkin;
+    }
+
+    public float getFontScale() {
+        return mFontScale;
+    }
+
+    public float getPerFontScale() {
+        return mPerFontScale;
     }
 
     /**
@@ -163,7 +175,12 @@ public class SkinManager extends Observable {
     }
 
     //通知每个界面设置字体大小
-    public void setFontScale() {
+    public void setFontScale(float fontScale) {
+        //赋值当前要设置的缩放倍数
+        mFontScale = fontScale;
+        //取上一次保存的缩放倍数
+        mPerFontScale = SkinSpUtils.getInstance().getFontScale();
+        SkinSpUtils.getInstance().saveFontScale(fontScale);
         setChanged();
         notifyObservers(SkinType.FONT_SCALE);
     }

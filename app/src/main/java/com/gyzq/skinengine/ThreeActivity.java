@@ -71,7 +71,17 @@ public class ThreeActivity extends BaseActivity {
 //               SkinResUtils.getInstance().changeFontScale(2.0f);
 //               System.out.println("字体大小>>>>"+ DisplayUtil.px2sp(getActivity(),changeFontSize.getTextSize()));
                System.out.println("字体大小>>>>"+ DisplayUtil.px2sp(getActivity(),changeFontSize.getTextSize()));
-               SkinManager.getInstance().setFontScale();
+               SkinManager.getInstance().setFontScale(2f);
+               System.out.println("字体大小>>>>"+ DisplayUtil.px2sp(getActivity(),changeFontSize.getTextSize()));
+               System.out.println("字体大小>>>>getTextScaleX"+ DisplayUtil.px2sp(getActivity(),changeFontSize.getTextScaleX()));
+           }
+       });
+
+       findViewById(R.id.fontScale).setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               //标准字体
+               SkinManager.getInstance().setFontScale(1f);
                System.out.println("字体大小>>>>"+ DisplayUtil.px2sp(getActivity(),changeFontSize.getTextSize()));
            }
        });

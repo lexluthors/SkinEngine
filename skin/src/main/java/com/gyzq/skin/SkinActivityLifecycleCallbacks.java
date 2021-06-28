@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.view.LayoutInflaterCompat;
 import android.view.LayoutInflater;
 
+import com.gyzq.skin.font.FontScaleUtil;
 import com.gyzq.skin.language.LanguageManager;
 
 import java.lang.reflect.Field;
@@ -26,6 +27,7 @@ public class SkinActivityLifecycleCallbacks implements Application.ActivityLifec
     @Override
     public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle savedInstanceState) {
         LanguageManager.getInstance().attachBaseContext(activity);
+        FontScaleUtil.applyFontScale(activity,SkinManager.getInstance().getFontScale());
 //        changeAppLanguage(activity);
         LayoutInflater layoutInflater = activity.getLayoutInflater();
         try {
