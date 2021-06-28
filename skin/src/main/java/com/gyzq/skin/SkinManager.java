@@ -79,7 +79,7 @@ public class SkinManager extends Observable {
         loadSkin(mSkinPath);
         SkinResUtils.getInstance().applyTypeFace();
 
-        isExistsSkin = new File(SkinManager.getInstance().getSkinPath()).exists();
+        isExistsSkin = new File(mSkinPath).exists();
     }
 
     public String getSkinPath() {
@@ -160,5 +160,11 @@ public class SkinManager extends Observable {
     public void setLanguage() {
         setChanged();
         notifyObservers(SkinType.LANGUAGE);
+    }
+
+    //通知每个界面设置字体大小
+    public void setFontScale() {
+        setChanged();
+        notifyObservers(SkinType.FONT_SCALE);
     }
 }

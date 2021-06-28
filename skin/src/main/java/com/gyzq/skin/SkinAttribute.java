@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.gyzq.skin.font.DisplayUtil;
+import com.gyzq.skin.font.FontScaleUtil;
 import com.gyzq.skin.language.LanguageManager;
 import com.gyzq.skin.utils.SkinResUtils;
 import com.gyzq.skin.utils.SkinThemeUtils;
@@ -130,6 +132,24 @@ public class SkinAttribute {
                     }
 
                 }
+            }
+        }
+    }
+
+    /**
+     * 全局设置字体大小
+     */
+    void applyFontScale() {
+        Context context = null;
+        for (SkinViewItem mSkinViewItem : mSkinViewItems) {
+            View view = mSkinViewItem.getView();
+            if (view instanceof TextView) {
+                if (null == context) {
+                    context = view.getContext();
+                    FontScaleUtil.applyFontScale(context,1.5f);
+                }
+                float size = ((TextView) view).getTextSize();
+                ((TextView) view).setTextSize(DisplayUtil.px2sp(context,size)*1.5f);
             }
         }
     }

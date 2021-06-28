@@ -87,6 +87,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/followSys" />
+    <Button
+        android:textAllCaps="false"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginStart="@dimen/dp_10"
+        android:background="@color/text_bg_color"
+        android:textColor="@color/text_color"
+        android:id="@+id/fontScale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/font_scale" />
 
     <TextView
         android:id="@+id/changeFontSize"

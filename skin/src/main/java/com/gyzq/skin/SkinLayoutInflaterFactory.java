@@ -99,6 +99,8 @@ public class SkinLayoutInflaterFactory implements LayoutInflater.Factory2, Obser
             skinAttribute.applyTypeFace();
         } else if (SkinType.LANGUAGE == arg) {
             skinAttribute.applyLanguage();
+        } else if (SkinType.FONT_SCALE == arg){
+            skinAttribute.applyFontScale();
         }
 
     }

@@ -6,5 +6,5 @@ package com.gyzq.skin;
  * @description:
  */
 public enum SkinType {
-    SKIN, TYPEFACE, LANGUAGE
+    SKIN, TYPEFACE, LANGUAGE, FONT_SCALE
 }

@@ -9,7 +9,6 @@ import com.gyzq.skin.SkinManager;
 import com.gyzq.skin.font.DisplayUtil;
 import com.gyzq.skin.language.Language;
 import com.gyzq.skin.language.LanguageManager;
-import com.gyzq.skin.utils.SkinResUtils;
 
 public class ThreeActivity extends BaseActivity {
 
@@ -68,10 +67,12 @@ public class ThreeActivity extends BaseActivity {
        changeFontSize.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-               System.out.println("字体大小>>>>"+changeFontSize.getTextSize());
-               SkinResUtils.getInstance().changeFontScale(2.0f);
+//               System.out.println("字体大小>>>>"+changeFontSize.getTextSize());
+//               SkinResUtils.getInstance().changeFontScale(2.0f);
+//               System.out.println("字体大小>>>>"+ DisplayUtil.px2sp(getActivity(),changeFontSize.getTextSize()));
                System.out.println("字体大小>>>>"+ DisplayUtil.px2sp(getActivity(),changeFontSize.getTextSize()));
-
+               SkinManager.getInstance().setFontScale();
+               System.out.println("字体大小>>>>"+ DisplayUtil.px2sp(getActivity(),changeFontSize.getTextSize()));
            }
        });
     }
