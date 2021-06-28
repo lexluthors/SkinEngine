@@ -26,9 +26,10 @@ public class SkinActivityLifecycleCallbacks implements Application.ActivityLifec
 
     @Override
     public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle savedInstanceState) {
+        //初始化语言设置
         LanguageManager.getInstance().attachBaseContext(activity);
+        //初始化字体大小缩放
         FontScaleUtil.applyFontScale(activity,SkinManager.getInstance().getFontScale());
-//        changeAppLanguage(activity);
         LayoutInflater layoutInflater = activity.getLayoutInflater();
         try {
             //Android 布局加载器 使用 mFactorySet 标记是否设置过Factory
@@ -45,7 +46,6 @@ public class SkinActivityLifecycleCallbacks implements Application.ActivityLifec
         LayoutInflaterCompat.setFactory2(layoutInflater, skinLayoutInflaterFactory);
         SkinManager.getInstance().addObserver(skinLayoutInflaterFactory);
         mSkinLayoutInflaterFactoryHashMap.put(activity, skinLayoutInflaterFactory);
-//        SkinResUtils.getInstance().changeFontScale(activity,30);
     }
 
     @Override

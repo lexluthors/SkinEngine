@@ -26,6 +26,6 @@
     <string name="guoyuandianjin">National yuan point</string>
     <string name="English">English</string>
     <string name="jar_to_st">Simplified and Traditional Chinese</string>
-    <string name="font_scale">修改字体大小</string>
-    <string name="normal_size_font">标准字体大小</string>
+    <string name="font_scale">Modify font size</string>
+    <string name="normal_size_font">Standard font size</string>
 </resources>
