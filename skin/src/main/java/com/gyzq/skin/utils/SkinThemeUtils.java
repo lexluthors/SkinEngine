@@ -9,7 +9,7 @@ import android.os.Build;
 /**
  * @author: liujie
  * @date: 2021/6/10
- * @description:
+ * @description: 用于改变状态栏颜色
  */
 public class SkinThemeUtils {
 
@@ -19,7 +19,9 @@ public class SkinThemeUtils {
     private static final int[] STATUS_BAR_COLOR_ATTRS = {android.R.attr.statusBarColor, android.R.attr
             .navigationBarColor};
 
-    //换肤字体的自定义属性名
+    /**
+     * 换肤字体的自定义属性名
+     */
     private static final int[] TYPEFACE_ATTRS = {
             android.R.attr.text
     };
@@ -34,8 +36,11 @@ public class SkinThemeUtils {
         return ints;
     }
 
-    //替换状态栏
-    public static void updataStatusBarColor(Activity activity) {
+    /**
+     * 替换状态栏
+     * @param activity
+     */
+    public static void updateStatusBarColor(Activity activity) {
         //5.0 以上才能修改
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             return;

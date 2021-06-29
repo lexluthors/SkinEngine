@@ -15,7 +15,6 @@ public class SkinSpUtils {
     private static final String KEY_TYPEFACE_PATH = "key_typeface_path";
     //字体大小
     private static final String KEY_FONT_SCALE = "key_font_scale";
-    private static final String KEY_PER_FONT_SCALE = "key_per_font_scale";
     private static SkinSpUtils instance;
     private final SharedPreferences pref;
 

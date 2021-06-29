@@ -26,9 +26,13 @@ public class LanguageManager {
     private static volatile LanguageManager mInstance;
 
     private static Language.MODE mLanguageMode = Language.MODE.CUSTOM;
-    //默认中文简体
+    /**
+     * 默认中文简体
+     */
     private static String mLanguageStr = "zh";
-    //默认CUSTOM
+    /**
+     * 默认CUSTOM
+     */
     private static String mLanguageModeStr = "CUSTOM";
 
     public static void init(Context context) {
@@ -48,16 +52,6 @@ public class LanguageManager {
         }
     }
 
-//    public static void init(Language language){
-//        mLanguage = language;
-//        final List<Locale> locales = language.getLocales();
-//        mSupportLanguages = new HashMap<String, Locale>(locales.size()) {{
-//            for (Locale locale: locales) {
-//                put(locale.getLanguage(), locale);
-//            }
-//        }};
-//    }
-
     public static LanguageManager getInstance() {
         return mInstance;
     }
@@ -67,20 +61,21 @@ public class LanguageManager {
 
 
     /**
-     * 初始化语言
-     *
+     * 应用语言
      * @param context
      * @return
      */
     public Context attachBaseContext(Context context) {
         String saveLanguage = getSaveLanguage();
-//        LogUtils.logi("当前语言:>>>"+saveLanguage);
+//        LogUtils.logi("当前语言:>>>" + saveLanguage);
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
 //            return createConfigurationResources(context, saveLanguage);
 //        } else {
+//            applyLanguage(context, saveLanguage);
+//            return context;
+//        }
         applyLanguage(context, saveLanguage);
         return context;
-//        }
     }
 
     /**
@@ -94,7 +89,6 @@ public class LanguageManager {
      */
     public String getSaveLanguage() {
         //获取首选语言
-        // return LanguageSpUtils.getInstance().getLanguage();
         return getPreferredLocale().getLanguage();
     }
 
@@ -165,14 +159,13 @@ public class LanguageManager {
             switch (mLanguageStr) {
                 case "TW":
                 case "tw":
-                    mLanguage = new Language(Language.MODE.CUSTOM, getTWLanguage());
-                    break;
-                case "zh":
-                    mLanguage = new Language(Language.MODE.CUSTOM, getZhLanguage());
+                    mLanguage = new Language(Language.MODE.CUSTOM, getTwLanguage());
                     break;
                 case "en":
                     mLanguage = new Language(Language.MODE.CUSTOM, getEnLanguage());
                     break;
+                default:
+                    mLanguage = new Language(Language.MODE.CUSTOM, getZhLanguage());
             }
             locale = mLanguage.getDefaultLocale();
         }
@@ -200,7 +193,7 @@ public class LanguageManager {
         switch (mLanguageStr) {
             case "tw":
             case "TW":
-                mLanguage = new Language(mLanguageMode, getTWLanguage());
+                mLanguage = new Language(mLanguageMode, getTwLanguage());
                 break;
             case "en":
                 mLanguage = new Language(mLanguageMode, getEnLanguage());
@@ -210,7 +203,7 @@ public class LanguageManager {
         }
     }
 
-    public static Locale getTWLanguage() {
+    public static Locale getTwLanguage() {
         return new Locale("TW", Locale.TRADITIONAL_CHINESE.getCountry());
     }
 
@@ -222,7 +215,7 @@ public class LanguageManager {
         return new Locale("zh", Locale.CHINESE.getCountry());
     }
 
-    public LanguageManager applyLanguage(Language language) {
+    public void applyLanguage(Language language) {
         //language变量中的语言模式也要更新
         mLanguage = language;
         //更新保存的当前语言变量
@@ -238,6 +231,5 @@ public class LanguageManager {
         }
         LanguageSpUtils.getInstance().saveLanguageMode(mLanguageModeStr);
         SkinManager.getInstance().setLanguage();
-        return mInstance;
     }
 }

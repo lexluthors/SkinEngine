@@ -27,15 +27,20 @@ import java.util.ArrayList;
  */
 public class SkinAttribute {
 
-    //用于保存view和view的各个属性的集合
+    /**
+     * 用于保存view和view的各个属性的集合
+     */
     private final ArrayList<SkinViewItem> mSkinViewItems;
-
 
     public SkinAttribute() {
         this.mSkinViewItems = new ArrayList<>();
     }
 
-    //解析属性集合，保存到list中
+    /**
+     * 解析属性集合，保存到list中
+     * @param view
+     * @param attributeSet
+     */
     void parseSkinAttr(View view, AttributeSet attributeSet) {
         SkinViewItem skinViewItem = new SkinViewItem();
         skinViewItem.setView(view);
@@ -44,7 +49,7 @@ public class SkinAttribute {
         ArrayList<SkinPair> skinPairs = new ArrayList<>();
         for (int i = 0; i < size; i++) {
             String attributeName = attributeSet.getAttributeName(i);
-            if (SkinManager.mSupportAttr.contains(attributeName)) {
+            if (SkinManager.SUPPORT_ATTR.contains(attributeName)) {
                 // 取值可能为 @2130837590、#具体色值、?2130837590 三种情况
                 String attributeValue = attributeSet.getAttributeValue(i);
                 //如果是以#开头的资源，是写死的，就不支持换肤，不需要处理 || attributeValue.startsWith("?")
@@ -156,6 +161,11 @@ public class SkinAttribute {
         }
     }
 
+    /**
+     * 应用皮肤，遍历所有要换肤的view
+     * @param view
+     * @param skinPairs
+     */
     void applySkin(View view, ArrayList<SkinPair> skinPairs) {
         for (SkinPair skinPair : skinPairs) {
             String attributeName = skinPair.getAttributeName();
@@ -211,6 +221,9 @@ public class SkinAttribute {
         }
     }
 
+    /**
+     * 注销所有view
+     */
     void destroyView() {
         mSkinViewItems.clear();
     }

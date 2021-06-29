@@ -8,7 +8,11 @@ import taobe.tec.jcc.JChineseConvertor;
  * @description:
  */
 public class LanguageConvert {
-    //简体转成繁体  s2t
+    /**
+     * 简体转成繁体  s2t
+     * @param changeText
+     * @return
+     */
     public static String s2t(String changeText) {
         try {
             JChineseConvertor jChineseConvertor = JChineseConvertor
@@ -21,7 +25,11 @@ public class LanguageConvert {
         return changeText;
     }
 
-    //繁体转成简体
+    /**
+     * 繁体转成简体
+     * @param changeText
+     * @return
+     */
     public static String t2s(String changeText) {
         try {
             JChineseConvertor jChineseConvertor = JChineseConvertor

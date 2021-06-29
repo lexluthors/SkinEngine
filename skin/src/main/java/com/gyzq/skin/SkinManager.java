@@ -22,35 +22,39 @@ import java.util.Observable;
  */
 public class SkinManager extends Observable {
 
-    public Application mContext;
-    //当前皮肤包路径
-    public String mSkinPath;
-    //皮肤包是否存在本地
-    private final boolean isExistsSkin;
-    private float mFontScale = 1f;
-    //上一个缩放倍数
-    private float mPerFontScale = 1f;
-
-    private static volatile SkinManager mInstance;
-
-    public static final ArrayList<String> mSupportAttr = new ArrayList<>();
+    Application mContext;
+    /**
+     * 当前皮肤包路径
+     */
+    String mSkinPath;
+    /**
+     * 皮肤包是否存在本地
+     */
+    boolean isExistsSkin;
+    float mFontScale = 1f;
+    /**
+     * 上一个缩放倍数
+     */
+    float mPerFontScale = 1f;
+    static volatile SkinManager mInstance;
+    static final ArrayList<String> SUPPORT_ATTR = new ArrayList<>();
 
     static {
-        mSupportAttr.add("background");
-        mSupportAttr.add("textColor");
-        mSupportAttr.add("src");
-        mSupportAttr.add("drawableLeft");
-        mSupportAttr.add("drawableTop");
-        mSupportAttr.add("drawableRight");
-        mSupportAttr.add("drawableBottom");
-        mSupportAttr.add("skinTypeface");
-        mSupportAttr.add("drawableStart");
-        mSupportAttr.add("drawableEnd");
-        mSupportAttr.add("text");
-        mSupportAttr.add("hint");
+        SUPPORT_ATTR.add("background");
+        SUPPORT_ATTR.add("textColor");
+        SUPPORT_ATTR.add("src");
+        SUPPORT_ATTR.add("drawableLeft");
+        SUPPORT_ATTR.add("drawableTop");
+        SUPPORT_ATTR.add("drawableRight");
+        SUPPORT_ATTR.add("drawableBottom");
+        SUPPORT_ATTR.add("skinTypeface");
+        SUPPORT_ATTR.add("drawableStart");
+        SUPPORT_ATTR.add("drawableEnd");
+        SUPPORT_ATTR.add("text");
+        SUPPORT_ATTR.add("hint");
     }
 
-    public static final String[] mClassPrefixList = {
+    public static final String[] CLASS_PREFIX_LIST = {
             "android.widget.",
             "android.webkit.",
             "android.app.",
@@ -72,18 +76,21 @@ public class SkinManager extends Observable {
 
     private SkinManager(Application application) {
         mContext = application;
-        //记录当前使用的皮肤
+        //实例化皮肤sp，用于访问本地皮肤路径。记录当前使用的皮肤
         SkinSpUtils.init(application);
         //资源管理类 用于从app/皮肤中加载资源
         SkinResUtils.init(application);
+        //获取当前使用的皮肤包路径，如果没有使用皮肤就是空串。使用app默认的皮肤。
         mSkinPath = SkinSpUtils.getInstance().getSkin();
+        //初始化皮肤是否存在变量
+        isExistsSkin = new File(mSkinPath).exists();
+        //获取本地保存的字体缩放比，默认是1f
         mFontScale = SkinSpUtils.getInstance().getFontScale();
         application.registerActivityLifecycleCallbacks(new SkinActivityLifecycleCallbacks());
         //加载当前皮肤，默认皮肤
         loadSkin(mSkinPath);
+        //应用默认字体
         SkinResUtils.getInstance().applyTypeFace();
-
-        isExistsSkin = new File(mSkinPath).exists();
     }
 
     public String getSkinPath() {
@@ -108,7 +115,6 @@ public class SkinManager extends Observable {
 
     /**
      * 加载指定的皮肤包
-     *
      * @param path 皮肤包路径，本地路径
      */
     public void loadSkin(String path) {
@@ -168,13 +174,18 @@ public class SkinManager extends Observable {
         SkinResUtils.getInstance().applyTypeFace();
     }
 
-    //通知每个界面切换语言
+    /**
+     * 通知每个界面切换语言
+     */
     public void setLanguage() {
         setChanged();
         notifyObservers(SkinType.LANGUAGE);
     }
 
-    //通知每个界面设置字体大小
+    /**
+     * 通知每个界面设置字体大小
+     * @param fontScale
+     */
     public void setFontScale(float fontScale) {
         //赋值当前要设置的缩放倍数
         mFontScale = fontScale;

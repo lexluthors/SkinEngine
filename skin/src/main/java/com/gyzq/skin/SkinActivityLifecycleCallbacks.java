@@ -20,8 +20,9 @@ import java.util.HashMap;
  * @description: 监听所有activity，拦截activity的布局创建
  */
 public class SkinActivityLifecycleCallbacks implements Application.ActivityLifecycleCallbacks {
-
-    //保存activity，对应的布局工厂，联动生命周期
+    /**
+     * 保存activity，对应的布局工厂，联动生命周期
+     */
     private final HashMap<Activity, SkinLayoutInflaterFactory> mSkinLayoutInflaterFactoryHashMap = new HashMap<>();
 
     @Override

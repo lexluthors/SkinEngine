@@ -71,13 +71,9 @@ public class SkinLayoutInflaterFactory implements LayoutInflater.Factory2, Obser
                 case "FrameLayout":
                     view = new FrameLayout(context, attrs);
                     break;
-//                case "android.support.v4.app.FragmentTabHost":
-//                    view = new FragmentTabHost(context,attrs);
-//                    break;
+                default:
+                    view = SkinViewFactory.createViewFromTag(context, name, attrs);
             }
-        }
-        if (view == null) {
-            view = SkinViewFactory.createViewFromTag(context, name, attrs);
         }
         if (view == null) {
             return null;
@@ -111,6 +107,9 @@ public class SkinLayoutInflaterFactory implements LayoutInflater.Factory2, Obser
         return null;
     }
 
+    /**
+     * 销毁所有保存的view
+     */
     void destroyView() {
         skinAttribute.destroyView();
     }

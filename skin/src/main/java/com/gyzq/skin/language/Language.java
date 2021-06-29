@@ -10,9 +10,13 @@ import java.util.Locale;
  * @description:
  */
 public class Language {
-    //默认支持的语言集合
-    private static final List<Locale> DEFAULT_LOCALES = Arrays.asList(LanguageManager.getZhLanguage(), LanguageManager.getEnLanguage(), LanguageManager.getTWLanguage());
-    //自定义模式下,默认语言
+    /**
+     * 默认支持的语言集合
+     */
+    private static final List<Locale> DEFAULT_LOCALES = Arrays.asList(LanguageManager.getZhLanguage(), LanguageManager.getEnLanguage(), LanguageManager.getTwLanguage());
+    /**
+     * 自定义模式下,默认语言
+     */
     private static final Locale DEFAULT_LOCALE = Locale.CHINA;
     private MODE mode;
     private Locale defaultLocale;
@@ -63,6 +67,9 @@ public class Language {
     }
 
     public enum MODE {
+        /**
+         * 语言模式，auto是跟随系统，custom是自己指定语言
+         */
         AUTO,
         CUSTOM
     }

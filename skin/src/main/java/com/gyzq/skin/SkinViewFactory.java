@@ -14,12 +14,12 @@ import java.util.Map;
  * @description: view创建类
  */
 public class SkinViewFactory {
-    private static final Object[] mConstructorArgs = new Object[2];
-    private static final Map<String, Constructor<? extends View>> sConstructorMap
+    private static final Object[] CONSTRUCTOR_ARGS = new Object[2];
+    private static final Map<String, Constructor<? extends View>> CONSTRUCTOR_MAP
             = new ArrayMap<>();
-    private static final Class<?>[] mConstructorSignature = new Class[]{
+    private static final Class<?>[] CONSTRUCTOR_SIGNATURE = new Class[]{
             Context.class, AttributeSet.class};
-    private static final String[] mClassPrefixList = {
+    private static final String[] CLASS_PREFIX_LIST = {
             "android.widget.",
             "android.webkit.",
             "android.app.",
@@ -27,16 +27,16 @@ public class SkinViewFactory {
     };
 
     static View createViewFromTag(Context context, String name, AttributeSet attrs) {
-        if (name.equals("view")) {
+        if ("view".equals(name)) {
             name = attrs.getAttributeValue(null, "class");
         }
 
         try {
-            mConstructorArgs[0] = context;
-            mConstructorArgs[1] = attrs;
+            CONSTRUCTOR_ARGS[0] = context;
+            CONSTRUCTOR_ARGS[1] = attrs;
 
             if (-1 == name.indexOf('.')) {
-                for (String s : mClassPrefixList) {
+                for (String s : CLASS_PREFIX_LIST) {
                     final View view = createView(context, name, s);
                     if (view != null) {
                         return view;
@@ -51,24 +51,24 @@ public class SkinViewFactory {
             return null;
         } finally {
             // 清空
-            mConstructorArgs[0] = null;
-            mConstructorArgs[1] = null;
+            CONSTRUCTOR_ARGS[0] = null;
+            CONSTRUCTOR_ARGS[1] = null;
         }
     }
 
     private static View createView(Context context, String name, String prefix) {
-        Constructor<? extends View> constructor = sConstructorMap.get(name);
+        Constructor<? extends View> constructor = CONSTRUCTOR_MAP.get(name);
         try {
             if (constructor == null) {
                 // 反射创建view
                 Class<? extends View> clazz = context.getClassLoader().loadClass(
                         prefix != null ? (prefix + name) : name).asSubclass(View.class);
 
-                constructor = clazz.getConstructor(mConstructorSignature);
-                sConstructorMap.put(name, constructor);
+                constructor = clazz.getConstructor(CONSTRUCTOR_SIGNATURE);
+                CONSTRUCTOR_MAP.put(name, constructor);
             }
             constructor.setAccessible(true);
-            return constructor.newInstance(mConstructorArgs);
+            return constructor.newInstance(CONSTRUCTOR_ARGS);
         } catch (Exception e) {
             // 如果创建失败，返回空，让系统去处理，系统会自动创建view
             return null;

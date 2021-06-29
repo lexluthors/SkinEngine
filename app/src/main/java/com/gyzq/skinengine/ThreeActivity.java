@@ -39,7 +39,7 @@ public class ThreeActivity extends BaseActivity {
         findViewById(R.id.jianfanti).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LanguageManager.getInstance().applyLanguage(new Language(Language.MODE.CUSTOM, LanguageManager.getTWLanguage()));
+                LanguageManager.getInstance().applyLanguage(new Language(Language.MODE.CUSTOM, LanguageManager.getTwLanguage()));
             }
         });
         //简体
@@ -53,7 +53,7 @@ public class ThreeActivity extends BaseActivity {
         findViewById(R.id.gensuixitong).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LanguageManager.getInstance().applyLanguage(new Language(Language.MODE.AUTO, LanguageManager.getTWLanguage()));
+                LanguageManager.getInstance().applyLanguage(new Language(Language.MODE.AUTO, LanguageManager.getTwLanguage()));
             }
         });
         //切换英文

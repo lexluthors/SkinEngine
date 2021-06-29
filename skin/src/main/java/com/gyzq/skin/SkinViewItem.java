@@ -12,8 +12,9 @@ import java.util.ArrayList;
 public class SkinViewItem {
 
     private View view;
-
-    // Pair中保存属性及对应的resId
+    /**
+     * Pair中保存属性及对应的resId
+     */
     private ArrayList<SkinPair> skinAttrs;
 
     public View getView() {

@@ -35,6 +35,7 @@ public class SkinResUtils {
 
     private SkinResUtils(Context context) {
         mAppResources = context.getResources();
+        //初始化本地保存的当前使用的字体，通过字体的本地路径获取
         typeFace = getTypeFaceFromFilePath();
         this.context = context;
     }
@@ -221,67 +222,4 @@ public class SkinResUtils {
 
     }
 
-
-//    @TargetApi(Build.VERSION_CODES.N)
-//    private static Context createConfigurationResources(Context context, String language) {
-//        Resources resources = context.getResources();
-//        Configuration configuration = resources.getConfiguration();
-//        Locale locale = getSupportLanguage(language);
-//        configuration.setLocale(locale);
-//        return context.createConfigurationContext(configuration);
-//    }
-//
-//    private static void applyLanguage(Context context, String newLanguage) {
-//        Resources resources = context.getResources();
-//        Configuration configuration = resources.getConfiguration();
-//        configuration.locale = getSupportLanguage(newLanguage);
-//        DisplayMetrics dm = resources.getDisplayMetrics();
-//        resources.updateConfiguration(configuration, dm);
-//    }
-//
-//    /**
-//     * 获取支持语言
-//     *
-//     * @param language language
-//     * @return 支持返回支持语言，不支持返回系统首选语言
-//     */
-//    @TargetApi(Build.VERSION_CODES.N)
-//    private static Locale getSupportLanguage(String language) {
-//        if (isSupportLanguage(language)) {
-//            return mSupportLanguages.get(language);
-//        }
-//        return getPreferredLanguage();
-//    }
-//
-//    /**
-//     * 是否支持此语言
-//     *
-//     * @param language language
-//     * @return true:支持 false:不支持
-//     */
-//    private static boolean isSupportLanguage(String language) {
-//        return mSupportLanguages.containsKey(language);
-//    }
-//
-//    /**
-//     * 获取首选语言
-//     * 1.自动模式下: 优先选择系统语言
-//     * 2.自定义模式下: 优先选择设置的默认语言
-//     * @return Locale
-//     */
-//    public static Locale getPreferredLanguage() {
-//        Locale locale;
-//        //跟随系统
-//        if (mLanguage.getMode() == Language.MODE.AUTO){
-//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-//                locale = LocaleList.getDefault().get(0);
-//            } else {
-//                locale = Locale.getDefault();
-//            }
-//        }else {
-//            locale = mLanguage.getDefaultLocale();
-//        }
-//
-//        return locale;
-//    }
 }

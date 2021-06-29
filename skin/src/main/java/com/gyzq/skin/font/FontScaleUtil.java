@@ -12,6 +12,11 @@ import android.util.DisplayMetrics;
  */
 public class FontScaleUtil {
 
+    /**
+     * 应用字体缩放
+     * @param context
+     * @param scale 缩放倍数
+     */
     public static void applyFontScale(Context context, float scale) {
         Resources resources = context.getResources();
         Configuration configuration = resources.getConfiguration();

@@ -6,5 +6,8 @@ package com.gyzq.skin;
  * @description:
  */
 public enum SkinType {
+    /**
+     * skin皮肤标识，字体标识，语言标识，字体大小缩放标识
+     */
     SKIN, TYPEFACE, LANGUAGE, FONT_SCALE
 }
