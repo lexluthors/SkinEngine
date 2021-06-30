@@ -15,9 +15,7 @@ public class LanguageConvert {
      */
     public static String s2t(String changeText) {
         try {
-            JChineseConvertor jChineseConvertor = JChineseConvertor
-                    .getInstance();
-            changeText = jChineseConvertor.s2t(changeText);
+            changeText = JChineseConvertor.getInstance().s2t(changeText);
         } catch (Exception e) {
             e.printStackTrace();
             return changeText;
@@ -32,9 +30,7 @@ public class LanguageConvert {
      */
     public static String t2s(String changeText) {
         try {
-            JChineseConvertor jChineseConvertor = JChineseConvertor
-                    .getInstance();
-            changeText = jChineseConvertor.t2s(changeText);
+            changeText = JChineseConvertor.getInstance().t2s(changeText);
         } catch (Exception e) {
             e.printStackTrace();
             return changeText;
