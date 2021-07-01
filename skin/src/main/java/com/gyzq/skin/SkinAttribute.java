@@ -33,9 +33,12 @@ public class SkinAttribute {
      * 用于保存view和view的各个属性的集合
      */
     private final ArrayList<SkinViewItem> mSkinViewItems;
+//    boolean isExistsSkin;
 
     public SkinAttribute() {
         this.mSkinViewItems = new ArrayList<>();
+        //初始化皮肤是否存在变量
+        SkinManager.getInstance().setExistsSkin();
     }
 
     /**
@@ -80,6 +83,7 @@ public class SkinAttribute {
         skinViewItem.setSkinAttrs(skinPairs);
         mSkinViewItems.add(skinViewItem);
         //后期优化这里
+//        if (isExistsSkin) {
         if (SkinManager.getInstance().isExistsSkin()) {
             //如果设置了皮肤，而且皮肤存在，就加载皮肤资源
             applySkin();

@@ -76,13 +76,20 @@ public class ThreeActivity extends BaseActivity {
                System.out.println("字体大小>>>>getTextScaleX"+ DisplayUtil.px2sp(getActivity(),changeFontSize.getTextScaleX()));
            }
        });
-
+        //标准字体
        findViewById(R.id.fontScale).setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
                //标准字体
                SkinManager.getInstance().setFontScale(1f);
-               System.out.println("字体大小>>>>"+ DisplayUtil.px2sp(getActivity(),changeFontSize.getTextSize()));
+           }
+       });
+       //小号字体
+       findViewById(R.id.smallFont).setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               //标准字体
+               SkinManager.getInstance().setFontScale(0.75f);
            }
        });
     }

@@ -20,15 +20,25 @@ import java.lang.reflect.Field;
 public class SkinResUtils {
 
     private static volatile SkinResUtils mInstance;
-    //app内部的resource对象
+    /**
+     * app内部的resource对象
+     */
     private Resources mAppResources;
-    //用于加载外部皮肤的resource对象
+    /**
+     * 用于加载外部皮肤的resource对象
+     */
     private Resources mSkinResources;
-    //皮肤包的包名
+    /**
+     * 皮肤包的包名
+     */
     private String mSkinPackageName;
-    //是否是默认皮肤
+    /**
+     * 是否是默认皮肤
+     */
     private boolean isDefaultSkin = true;
-    //默认字体
+    /**
+     * 默认字体
+     */
     private Typeface typeFace = Typeface.DEFAULT;
 
     Context context;
@@ -115,7 +125,7 @@ public class SkinResUtils {
     public Object getBackground(int resId) {
         String resourceTypeName = mAppResources.getResourceTypeName(resId);
 
-        if (resourceTypeName.equals("color")) {
+        if ("color".equals(resourceTypeName)) {
             return getColor(resId);
         } else {
             // drawable
@@ -123,6 +133,12 @@ public class SkinResUtils {
         }
     }
 
+    /**
+     * 通过resid，获取对应的皮肤包中的资源id
+     *
+     * @param resId
+     * @return
+     */
     public int getIdentifier(int resId) {
         if (isDefaultSkin) {
             return resId;
@@ -130,8 +146,8 @@ public class SkinResUtils {
         //在皮肤包中不一定就是 当前程序的 id
         //获取对应id 在当前的名称 colorPrimary
         //R.drawable.ic_launcher
-        String resName = mAppResources.getResourceEntryName(resId);//ic_launcher   /colorPrimaryDark
-        String resType = mAppResources.getResourceTypeName(resId);//drawable
+        String resName = mAppResources.getResourceEntryName(resId);
+        String resType = mAppResources.getResourceTypeName(resId);
         return mSkinResources.getIdentifier(resName, resType, mSkinPackageName);
     }
 
@@ -180,8 +196,9 @@ public class SkinResUtils {
      */
     public Typeface getTypeFaceFromFilePath() {
         String fontPath = SkinSpUtils.getInstance().getTypeFacePath();
-        if (TextUtils.isEmpty(fontPath))
+        if (TextUtils.isEmpty(fontPath)) {
             return Typeface.DEFAULT;
+        }
         return Typeface.createFromFile(fontPath);
     }
 

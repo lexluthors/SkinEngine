@@ -10,8 +10,13 @@ import android.content.SharedPreferences;
  */
 public class LanguageSpUtils {
     private static final String SKIN_SHARED = "gyzq_multi_language";
-
+    /**
+     * 当前语言sp-key
+     */
     private static final String KEY_LANGUAGE_STRING = "key_language_string";
+    /**
+     * 语言模式sp-key
+     */
     private static final String KEY_LANGUAGE_MODE = "key_language_mode";
     private static LanguageSpUtils instance;
     private final SharedPreferences pref;

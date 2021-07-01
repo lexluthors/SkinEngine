@@ -11,9 +11,17 @@ import android.content.SharedPreferences;
 public class SkinSpUtils {
     private static final String SKIN_SHARED = "gyzq_skins";
 
+    /**
+     * 皮肤路径的sp-key
+     */
     private static final String KEY_SKIN_PATH = "key_skin_path";
+    /**
+     * 字体路径的sp-key
+     */
     private static final String KEY_TYPEFACE_PATH = "key_typeface_path";
-    //字体大小
+    /**
+     * 字体大小sp-key
+     */
     private static final String KEY_FONT_SCALE = "key_font_scale";
     private static SkinSpUtils instance;
     private final SharedPreferences pref;

@@ -10,7 +10,6 @@ import android.content.Context;
 public class DisplayUtil {
     /**
      * 将px值转换为dip或dp值，保证尺寸大小不变
-     *
      * @param pxValue
      * @param context   （DisplayMetrics类中属性density）
      * @return
@@ -22,7 +21,6 @@ public class DisplayUtil {
 
     /**
      * 将dip或dp值转换为px值，保证尺寸大小不变
-     *
      * @param dipValue
      * @param context    （DisplayMetrics类中属性density）
      * @return
@@ -34,7 +32,6 @@ public class DisplayUtil {
 
     /**
      * 将px值转换为sp值，保证文字大小不变
-     *
      * @param pxValue
      * @param context （DisplayMetrics类中属性scaledDensity）
      * @return
@@ -46,7 +43,6 @@ public class DisplayUtil {
 
     /**
      * 将sp值转换为px值，保证文字大小不变
-     *
      * @param spValue
      * @param context （DisplayMetrics类中属性scaledDensity）
      * @return

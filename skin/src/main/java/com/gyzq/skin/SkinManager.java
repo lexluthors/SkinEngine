@@ -27,6 +27,7 @@ public class SkinManager extends Observable {
      * 当前皮肤包路径
      */
     String mSkinPath;
+
     /**
      * 皮肤包是否存在本地
      */
@@ -84,11 +85,11 @@ public class SkinManager extends Observable {
         mSkinPath = SkinSpUtils.getInstance().getSkin();
         //初始化皮肤是否存在变量
         isExistsSkin = new File(mSkinPath).exists();
+        //加载当前皮肤，默认皮肤
+        loadSkin(mSkinPath);
         //获取本地保存的字体缩放比，默认是1f
         mFontScale = SkinSpUtils.getInstance().getFontScale();
         application.registerActivityLifecycleCallbacks(new SkinActivityLifecycleCallbacks());
-        //加载当前皮肤，默认皮肤
-        loadSkin(mSkinPath);
         //应用默认字体
         SkinResUtils.getInstance().applyTypeFace();
     }
@@ -103,6 +104,11 @@ public class SkinManager extends Observable {
 
     public boolean isExistsSkin() {
         return isExistsSkin;
+    }
+
+    public void setExistsSkin() {
+        mSkinPath = SkinSpUtils.getInstance().getSkin();
+        isExistsSkin = new File(mSkinPath).exists();
     }
 
     public float getFontScale() {

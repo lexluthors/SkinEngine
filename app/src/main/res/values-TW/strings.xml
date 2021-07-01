@@ -34,4 +34,5 @@
     <string name="jar_to_st">第三方库简繁体</string>
     <string name="font_scale">修改字体大小</string>
     <string name="normal_size_font">标准字体大小</string>
+    <string name="small_font">小号字体</string>
 </resources>

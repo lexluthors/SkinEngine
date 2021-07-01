@@ -13,7 +13,7 @@
     <string name="fanti">繁体</string>
     <string name="jianti">简体</string>
     <string name="followSys">跟随系统</string>
-    <string name="settingFontSize">设置字体变大25</string>
+    <string name="settingFontSize">设置大号字体</string>
     <string name="jumpToThree">跳转到第三个界面</string>
     <string name="changeFont">修改字体</string>
     <string name="defalutFont">默认字体</string>
@@ -22,4 +22,5 @@
     <string name="jar_to_st">第三方库简繁体</string>
     <string name="font_scale">修改字体大小</string>
     <string name="normal_size_font">标准字体大小</string>
+    <string name="small_font">小号字体</string>
 </resources>
