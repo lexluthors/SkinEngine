@@ -18,11 +18,26 @@ public class FontScaleUtil {
      * @param scale 缩放倍数
      */
     public static void applyFontScale(Context context, float scale) {
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+//            createConfigurationResources(context, scale);
+//        } else {
+            updateConfig(context, scale);
+//        }
+    }
+
+    public static void updateConfig(Context context, float scale) {
         Resources resources = context.getResources();
         Configuration configuration = resources.getConfiguration();
         configuration.fontScale = scale;
         DisplayMetrics dm = resources.getDisplayMetrics();
         resources.updateConfiguration(configuration, dm);
+    }
+
+    public static Context createConfigurationResources(Context context, float scale) {
+        Resources resources = context.getResources();
+        Configuration configuration = resources.getConfiguration();
+        configuration.fontScale = scale;
+        return context.createConfigurationContext(configuration);
     }
 
 }

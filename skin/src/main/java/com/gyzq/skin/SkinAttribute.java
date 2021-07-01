@@ -8,6 +8,8 @@ import android.support.v4.view.ViewCompat;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -38,6 +40,7 @@ public class SkinAttribute {
 
     /**
      * 解析属性集合，保存到list中
+     *
      * @param view
      * @param attributeSet
      */
@@ -151,18 +154,35 @@ public class SkinAttribute {
             if (view instanceof TextView) {
                 if (null == context) {
                     context = view.getContext();
-                    FontScaleUtil.applyFontScale(context,SkinManager.getInstance().getFontScale());
+                    FontScaleUtil.applyFontScale(context, SkinManager.getInstance().getFontScale());
                 }
                 float size = ((TextView) view).getTextSize();
                 //计算字体原来的大小，通过现在的尺寸除以上次缩放的倍数计算得到，然后再缩放到当前要设置的倍数
-                float originSize = size/SkinManager.getInstance().getPerFontScale();
-                ((TextView) view).setTextSize(DisplayUtil.px2sp(context,originSize)*SkinManager.getInstance().getFontScale());
+                float originSize = size / SkinManager.getInstance().getPerFontScale();
+                ((TextView) view).setTextSize(DisplayUtil.px2sp(context, originSize) * SkinManager.getInstance().getFontScale());
+            } else if (view instanceof WebView) {
+                WebView webView = (WebView) view;
+                WebSettings settings = webView.getSettings();
+                settings.setSupportZoom(true);
+                float fontScale = SkinManager.getInstance().getFontScale();
+                if (fontScale == 1) {
+                    settings.setTextZoom(100);
+                } else if (fontScale == 1.5) {
+                    settings.setTextZoom(150);
+                } else if (fontScale == 2) {
+                    settings.setTextZoom(200);
+                } else if (fontScale == 0.75) {
+                    settings.setTextZoom(75);
+                } else if (fontScale == 0.5) {
+                    settings.setTextZoom(50);
+                }
             }
         }
     }
 
     /**
      * 应用皮肤，遍历所有要换肤的view
+     *
      * @param view
      * @param skinPairs
      */

@@ -28,6 +28,12 @@ public class ListActivity extends BaseActivity {
                 SkinManager.getInstance().loadSkin("/sdcard/app-debug.apk");
             }
         });
+        findViewById(R.id.jumpWeb).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toActivity(WebViewActivity.class);
+            }
+        });
 
         recyclerView = findViewById(R.id.recycleview);
         LinearLayoutManager manager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
