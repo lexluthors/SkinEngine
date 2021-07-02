@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.gyzq.skin.font.DisplayUtil;
 import com.gyzq.skin.font.FontScaleUtil;
+import com.gyzq.skin.language.LanguageConvert;
 import com.gyzq.skin.language.LanguageManager;
 import com.gyzq.skin.utils.SkinResUtils;
 import com.gyzq.skin.utils.SkinThemeUtils;
@@ -141,6 +142,10 @@ public class SkinAttribute {
                             editText.setTextLocale(LanguageManager.getInstance().getPreferredLocale());
                             editText.setHint(id);
                         }
+                    }else{
+                        TextView textView = (TextView) view;
+                        String twString = LanguageConvert.s2t(textView.getText().toString());
+                        textView.setText(twString);
                     }
 
                 }

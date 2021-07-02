@@ -26,18 +26,18 @@ public class SkinManager extends Observable {
     /**
      * 当前皮肤包路径
      */
-    String mSkinPath;
+    private String mSkinPath;
 
     /**
      * 皮肤包是否存在本地
      */
-    boolean isExistsSkin;
-    float mFontScale = 1f;
+    private boolean isExistsSkin;
+    private float mFontScale = 1f;
     /**
      * 上一个缩放倍数
      */
-    float mPerFontScale = 1f;
-    static volatile SkinManager mInstance;
+    private float mPerFontScale = 1f;
+    private static volatile SkinManager mInstance;
     static final ArrayList<String> SUPPORT_ATTR = new ArrayList<>();
 
     static {
