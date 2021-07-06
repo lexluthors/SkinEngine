@@ -4,6 +4,7 @@ package com.gyzq.skinengine;
 import android.app.Application;
 
 import com.gyzq.skin.SkinManager;
+import com.gyzq.skin.display.ScreenAdaptationUtil;
 import com.gyzq.skin.language.LanguageManager;
 
 
@@ -16,6 +17,7 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        ScreenAdaptationUtil.getInstance().setDefaultDp(375).setOpenAdaptation(true);
         SkinManager.init(this);
 
         //new Language(Language.MODE.CUSTOM, LanguageManager.getTWLanguage())

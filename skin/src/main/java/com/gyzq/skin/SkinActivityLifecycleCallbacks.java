@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.view.LayoutInflaterCompat;
 import android.view.LayoutInflater;
 
+import com.gyzq.skin.display.ScreenAdaptationUtil;
 import com.gyzq.skin.font.FontScaleUtil;
 import com.gyzq.skin.language.LanguageManager;
 
@@ -27,6 +28,8 @@ public class SkinActivityLifecycleCallbacks implements Application.ActivityLifec
 
     @Override
     public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle savedInstanceState) {
+        //屏幕适配
+        ScreenAdaptationUtil.getInstance().setCustomDensity(activity, activity.getApplication(), 375);
         //初始化语言设置
         LanguageManager.getInstance().attachBaseContext(activity);
         //初始化字体大小缩放
