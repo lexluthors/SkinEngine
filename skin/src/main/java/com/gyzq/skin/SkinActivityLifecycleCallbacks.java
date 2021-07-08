@@ -28,12 +28,18 @@ public class SkinActivityLifecycleCallbacks implements Application.ActivityLifec
 
     @Override
     public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle savedInstanceState) {
-        //屏幕适配
-        ScreenAdaptationUtil.getInstance().setCustomDensity(activity, activity.getApplication(), 375);
         //初始化语言设置
         LanguageManager.getInstance().attachBaseContext(activity);
         //初始化字体大小缩放
-        FontScaleUtil.applyFontScale(activity,SkinManager.getInstance().getFontScale());
+        FontScaleUtil.applyFontScale(activity, SkinManager.getInstance().getFontScale());
+        //屏幕适配
+        ScreenAdaptationUtil.getInstance().setCustomDensity(activity, activity.getApplication());
+        System.out.println("density"+activity.getResources().getDisplayMetrics().density);
+        System.out.println("densityDpi"+activity.getResources().getDisplayMetrics().densityDpi);
+        System.out.println("heightPixels"+activity.getResources().getDisplayMetrics().heightPixels);
+        System.out.println("widthPixels"+activity.getResources().getDisplayMetrics().widthPixels);
+        System.out.println("scaledDensity"+activity.getResources().getDisplayMetrics().scaledDensity);
+        System.out.println("fontScale"+activity.getResources().getConfiguration().fontScale);
         LayoutInflater layoutInflater = activity.getLayoutInflater();
         try {
             //Android 布局加载器 使用 mFactorySet 标记是否设置过Factory
@@ -54,7 +60,6 @@ public class SkinActivityLifecycleCallbacks implements Application.ActivityLifec
 
     @Override
     public void onActivityStarted(@NonNull Activity activity) {
-
     }
 
     @Override

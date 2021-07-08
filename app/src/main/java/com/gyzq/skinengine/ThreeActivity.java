@@ -73,7 +73,7 @@ public class ThreeActivity extends BaseActivity {
                System.out.println("字体大小>>>>"+ DisplayUtil.px2sp(getActivity(),changeFontSize.getTextSize()));
                SkinManager.getInstance().setFontScale(2f);
                System.out.println("字体大小>>>>"+ DisplayUtil.px2sp(getActivity(),changeFontSize.getTextSize()));
-               System.out.println("字体大小>>>>getTextScaleX"+ DisplayUtil.px2sp(getActivity(),changeFontSize.getTextScaleX()));
+//               System.out.println("字体大小>>>>getTextScaleX"+ DisplayUtil.px2sp(getActivity(),changeFontSize.getTextScaleX()));
            }
        });
         //标准字体

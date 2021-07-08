@@ -19,11 +19,11 @@ public class ScreenAdaptationUtil {
     /**
      * 默认适配宽度，UI横屏尺寸360dp
      */
-    float defaultDp = 360;
+    private float defaultDp = 360;
     /**
      * 是否开启适配
      */
-    boolean isOpenAdaptation = false;
+    private boolean isOpenAdaptation = false;
 
     private ScreenAdaptationUtil() {
 
@@ -41,10 +41,6 @@ public class ScreenAdaptationUtil {
         return instance;
     }
 
-    public boolean isOpenAdaptation() {
-        return isOpenAdaptation;
-    }
-
     public void setOpenAdaptation(boolean openAdaptation) {
         isOpenAdaptation = openAdaptation;
     }
@@ -53,9 +49,8 @@ public class ScreenAdaptationUtil {
      * 屏幕适配
      * @param activity
      * @param application
-     * @param defaultDp
      */
-    public void setCustomDensity(Activity activity, Application application, float defaultDp) {
+    public void setCustomDensity(Activity activity, Application application) {
         if (!isOpenAdaptation){
             return;
         }
@@ -92,5 +87,19 @@ public class ScreenAdaptationUtil {
         activityDisplayMetrics.density = targetDensity;
         appDisplayMetrics.scaledDensity = targetScaledDensity;
         activityDisplayMetrics.densityDpi = targetDensityDpi;
+
+//        DisplayMetrics applicationMetrics = application.getResources().getDisplayMetrics();
+//        float targetDensity  = (applicationMetrics.widthPixels/defaultDp);
+//        float targetDensityDpi = 160*targetDensity;
+//
+//        applicationMetrics.density = targetDensity;
+//        applicationMetrics.scaledDensity = targetDensity;
+//        applicationMetrics.densityDpi = (int) targetDensityDpi;
+//
+//        DisplayMetrics activityMetrics = activity.getResources().getDisplayMetrics();
+//        activityMetrics.density = targetDensity;
+//        activityMetrics.scaledDensity = targetDensity;
+//        activityMetrics.densityDpi = (int) targetDensityDpi;
     }
+
 }
