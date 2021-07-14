@@ -46,7 +46,19 @@ public class ScreenAdaptationUtil {
     }
 
     /**
-     * 屏幕适配
+     * android中的dp在渲染前会将dp转为px，dpi即是ppi，像素密度。计算公式：
+     * px = density * dp;
+     * density = dpi / 160;
+     * px = dp * (dpi / 160);
+     *
+     * 屏幕适配 其主要的作用就是将其他尺寸单位（例如dp，sp）转换为像素单位px。现在我们来测试一下，举个例子：
+     *
+     * 例1：设计图总宽度为375dp，屏幕宽度为1080px，可以得出density，1080/375=2.88。
+     * 假如一个view为60dp，60dp算成px就是 60dp*2.88=172.8px，所占屏幕宽度比为 172.8/1080=0.16
+     *
+     * 例2：设计图总宽度为375dp，屏幕宽度为1440px，可以得出density，1440/375=3.84。
+     * 假如一个view为60dp，60dp那么算成px就是 60dp*3.84=230.4px，所占屏幕宽度比为 230.4/1440=0.16。
+     *
      * @param activity
      * @param application
      */
@@ -87,19 +99,32 @@ public class ScreenAdaptationUtil {
         activityDisplayMetrics.density = targetDensity;
         appDisplayMetrics.scaledDensity = targetScaledDensity;
         activityDisplayMetrics.densityDpi = targetDensityDpi;
-
-//        DisplayMetrics applicationMetrics = application.getResources().getDisplayMetrics();
-//        float targetDensity  = (applicationMetrics.widthPixels/defaultDp);
-//        float targetDensityDpi = 160*targetDensity;
-//
-//        applicationMetrics.density = targetDensity;
-//        applicationMetrics.scaledDensity = targetDensity;
-//        applicationMetrics.densityDpi = (int) targetDensityDpi;
-//
-//        DisplayMetrics activityMetrics = activity.getResources().getDisplayMetrics();
-//        activityMetrics.density = targetDensity;
-//        activityMetrics.scaledDensity = targetDensity;
-//        activityMetrics.densityDpi = (int) targetDensityDpi;
     }
 
+//    /**
+//     * 系统源码 尺寸之间的转换，最终都会转成px显示到屏幕上
+//     * @param unit
+//     * @param value
+//     * @param metrics
+//     * @return
+//     */
+//    public static float applyDimension(int unit, float value,
+//                                       DisplayMetrics metrics)
+//    {
+//        switch (unit) {
+//            case COMPLEX_UNIT_PX:
+//                return value;
+//            case COMPLEX_UNIT_DIP:
+//                return value * metrics.density;
+//            case COMPLEX_UNIT_SP:
+//                return value * metrics.scaledDensity;
+//            case COMPLEX_UNIT_PT:
+//                return value * metrics.xdpi * (1.0f/72);
+//            case COMPLEX_UNIT_IN:
+//                return value * metrics.xdpi;
+//            case COMPLEX_UNIT_MM:
+//                return value * metrics.xdpi * (1.0f/25.4f);
+//        }
+//        return 0;
+//    }
 }
