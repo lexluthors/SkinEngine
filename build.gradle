@@ -17,7 +17,8 @@ allprojects {
         google()
         mavenCentral()
         jcenter() // Warning: this repository is going to shut down soon
-        maven { url 'https://jitpack.io' }
+//        maven { url 'https://jitpack.io' }
+        maven { url 'http://60.174.200.97:28081/nexus/content/groups/gy-public/' }
     }
 }
 

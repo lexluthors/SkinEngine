@@ -21,9 +21,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        GlobalStatusBarUtil.setStatusBarDarkFont(this, isDarkFont());
-//        Immersive.setContentView(this, layoutId(), R.color.main_color, R.color.main_color, false, false);
-//        Immersive.setStatusBarLightMode(this);
     }
 
 
