@@ -239,4 +239,7 @@ public class SkinResUtils {
 
     }
 
+    public static void getRes(){
+
+    }
 }

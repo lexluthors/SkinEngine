@@ -1,0 +1,29 @@
+apply plugin: 'maven'
+
+//def定义的变量才会在project中
+def POM_NAME='skinEngine'
+def POM_VERSION='3.0.1'
+def POM_ARTIFACTID="skinEngine"//项目名称id
+def POM_GROUPID='com.gyzq.skin'  //项目组id
+def POM_PACKAGING='aar'
+def POM_DESCRIPTION='skinEngine for Android'
+def NEXUS_USERNAME='admin'   //用户名
+def NEXUS_PASSWORD='gy-kds'  //密码
+def NEXUS_REPOSITORY_URL='http://60.174.200.97:28081/nexus/content/repositories/com.gy.common/'  //repository的URL
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: NEXUS_REPOSITORY_URL) {
+                authentication(userName: NEXUS_USERNAME, password: NEXUS_PASSWORD)
+            }
+            pom.project {
+                name POM_NAME
+                version POM_VERSION
+                artifactId POM_ARTIFACTID
+                groupId POM_GROUPID
+                packaging POM_PACKAGING
+                description POM_DESCRIPTION
+            }
+        }
+    }
+}
